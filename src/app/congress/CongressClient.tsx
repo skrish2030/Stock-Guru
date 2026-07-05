@@ -17,12 +17,23 @@ interface CongressItem {
 export default function CongressClient({ initialData }: { initialData: CongressItem[] }) {
   const [data] = useState<CongressItem[]>(initialData);
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState<'congress' | 'senators' | 'corporate'>('congress');
 
   const filteredData = data.filter(item => {
     const symbol = (item.symbol || item.ticker || '').toLowerCase();
     const rep = (item.representative || '').toLowerCase();
     return symbol.includes(searchQuery.toLowerCase()) || rep.includes(searchQuery.toLowerCase());
   });
+
+  const parsedData = filteredData.map(item => {
+    const repStr = (item.representative || '').toLowerCase();
+    const isSenator = repStr.includes('senator') || repStr.includes('sen.');
+    const isCongress = repStr.includes('representative') || repStr.includes('rep.') || repStr.includes('congress');
+    const category = isSenator ? 'senators' : (isCongress ? 'congress' : 'corporate');
+    return { ...item, category };
+  });
+
+  const tabData = parsedData.filter(item => item.category === activeTab);
 
   return (
     <div className="p-6 space-y-6">
@@ -51,18 +62,40 @@ export default function CongressClient({ initialData }: { initialData: CongressI
         </div>
       </div>
 
+      {/* Insider Tabs (Matches layout style of Pro Ticker selectors) */}
+      <div className="grid grid-cols-3 gap-2 p-1 bg-[#000000] border rounded-lg" style={{ borderColor: '#27272a' }}>
+        <button 
+          onClick={() => setActiveTab('congress')}
+          className={`py-3 text-xs font-black uppercase rounded-md transition-all ${activeTab === 'congress' ? 'bg-[#8b5cf6] text-[#ffffff] shadow-lg' : 'text-[#a1a1aa] hover:text-[#fafafa]'}`}
+        >
+          Congress (Reps)
+        </button>
+        <button 
+          onClick={() => setActiveTab('senators')}
+          className={`py-3 text-xs font-black uppercase rounded-md transition-all ${activeTab === 'senators' ? 'bg-[#8b5cf6] text-[#ffffff] shadow-lg' : 'text-[#a1a1aa] hover:text-[#fafafa]'}`}
+        >
+          Senators
+        </button>
+        <button 
+          onClick={() => setActiveTab('corporate')}
+          className={`py-3 text-xs font-black uppercase rounded-md transition-all ${activeTab === 'corporate' ? 'bg-[#8b5cf6] text-[#ffffff] shadow-lg' : 'text-[#a1a1aa] hover:text-[#fafafa]'}`}
+        >
+          Corporate / Others
+        </button>
+      </div>
+
       {/* Insider Trades Card List (Matches layout of Image 4) */}
       <div className="space-y-4 max-h-[600px] overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[#27272a]">
         <h3 className="text-xs font-bold text-[#a1a1aa] uppercase tracking-wider pl-1">
-          Latest Insider Trades
+          {activeTab === 'congress' ? 'Latest House Representative Filings' : activeTab === 'senators' ? 'Latest Senate Member Filings' : 'Latest Corporate Executive Filings'}
         </h3>
 
-        {filteredData.length === 0 ? (
+        {tabData.length === 0 ? (
           <div className="p-10 border rounded-xl bg-[#09090b] border-[#27272a] text-center text-[#52525b] italic">
-            No transactions found matching your search.
+            No transactions found in this category.
           </div>
         ) : (
-          filteredData.map((item, idx) => {
+          tabData.map((item, idx) => {
             const rawType = item.transactionType || item.transaction_type || 'Trade';
             const symbol = item.symbol || item.ticker || 'N/A';
             const date = item.date || item.transaction_date || 'N/A';
