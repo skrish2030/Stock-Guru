@@ -19,9 +19,18 @@ export default async function Home() {
     console.error("Supabase fetch error:", error);
   }
 
+  // Fetch general news for the home carousel
+  const { data: rawNews } = await supabase
+    .from('raw_market_data')
+    .select('payload')
+    .eq('data_type', 'general_news')
+    .single();
+
+  const initialNews = rawNews?.payload || [];
+
   return (
     <main className="min-h-screen bg-[#0A0A0A] text-white selection:bg-indigo-500/30">
-      <DashboardClient initialTickers={tickers || []} />
+      <DashboardClient initialTickers={tickers || []} initialNews={initialNews} />
     </main>
   );
 }

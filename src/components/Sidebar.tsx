@@ -11,17 +11,19 @@ import {
   MessageSquareWarning, 
   BrainCircuit, 
   Search, 
-  Settings 
+  Settings,
+  TrendingUp
 } from 'lucide-react';
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   const links = [
-    { name: 'Overview', href: '/', icon: Activity },
-    { name: 'Penny Volatility', href: '/penny', icon: Coins },
+    { name: 'Home', href: '/', icon: Activity },
+    { name: 'Market Scanner', href: '/penny', icon: Coins },
+    { name: 'Trending Stocks', href: '/trending', icon: TrendingUp },
+    { name: 'Insider Trading', href: '/congress', icon: Landmark },
     { name: 'Live News Feed', href: '/news', icon: Newspaper },
-    { name: 'Inside Track', href: '/congress', icon: Landmark },
     { name: 'YouTube Watch', href: '/youtube', icon: Video },
     { name: 'Retail Sentiment', href: '/retail', icon: MessageSquareWarning },
     { name: 'Personal Advisor', href: '/advisor', icon: BrainCircuit },
