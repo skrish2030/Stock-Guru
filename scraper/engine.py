@@ -594,8 +594,10 @@ def resolve_ticker_pipeline(ticker: str, meta: dict, finnhub_key: str, session=N
     # Resolve quote
     meta["quote"] = get_realtime_quote(ticker, finnhub_key)
     
-    # Resolve news headlines
+    # Resolve news headlines (Google News + Yahoo Finance)
     news_headlines = []
+    
+    # 1. Google News RSS
     try:
         news_url = f"https://news.google.com/rss/search?q={ticker}+stock&hl=en-US&gl=US&ceid=US:en"
         headers = {"User-Agent": "Mozilla/5.0"}
@@ -613,9 +615,30 @@ def resolve_ticker_pipeline(ticker: str, meta: dict, finnhub_key: str, session=N
                 if t_title:
                     if " - " in t_title:
                         t_title = t_title.rsplit(" - ", 1)[0]
-                    news_headlines.append(t_title)
+                    news_headlines.append(f"[Google News] {t_title}")
     except Exception:
         pass
+
+    # 2. Yahoo Finance RSS
+    try:
+        yf_url = f"https://feeds.finance.yahoo.com/rss/2.0/headline?s={ticker}&region=US&lang=en-US"
+        headers = {"User-Agent": "Mozilla/5.0"}
+        if session:
+            yf_res = session.get(yf_url, headers=headers, timeout=3)
+        else:
+            yf_res = requests.get(yf_url, headers=headers, timeout=3)
+            
+        if yf_res.status_code == 200:
+            import xml.etree.ElementTree as ET
+            yf_root = ET.fromstring(yf_res.content)
+            yf_items = yf_root.findall(".//item")
+            for item in yf_items[:3]:
+                t_title = item.find("title").text if item.find("title") is not None else ""
+                if t_title:
+                    news_headlines.append(f"[Yahoo Finance] {t_title}")
+    except Exception:
+        pass
+        
     meta["news_headlines"] = news_headlines
     
     # Search for Guru mentions relating to this ticker
