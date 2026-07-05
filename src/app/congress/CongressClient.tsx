@@ -6,9 +6,12 @@ import { Landmark } from 'lucide-react';
 interface CongressItem {
   representative?: string;
   ticker?: string;
+  symbol?: string;
   transaction_type?: string;
+  transactionType?: string;
   amount?: string;
   transaction_date?: string;
+  date?: string;
 }
 
 export default function CongressClient({ initialData }: { initialData: CongressItem[] }) {
@@ -39,18 +42,22 @@ export default function CongressClient({ initialData }: { initialData: CongressI
               </tr>
             ) : (
               data.map((item, idx) => {
-                const isPurchase = item.transaction_type?.toLowerCase().includes('purchase');
+                const transactionType = item.transactionType || item.transaction_type || 'N/A';
+                const isPurchase = transactionType.toLowerCase().includes('purchase') || transactionType.toLowerCase().includes('buy');
+                const symbol = item.symbol || item.ticker || 'N/A';
+                const date = item.date || item.transaction_date || 'N/A';
+                
                 return (
-                  <tr key={idx} style={{ backgroundColor: idx % 2 === 0 ? '#0c0f17' : '#111827' }} className="hover:bg-[#1f2937] transition-colors">
-                    <td className="p-3 border-r text-center text-[#94a3b8]" style={{ borderColor: '#1e293b' }}>{idx + 1}</td>
-                    <td className="p-3 border-r text-[#f8fafc]" style={{ borderColor: '#1e293b' }}>{item.representative || 'N/A'}</td>
-                    <td className="p-3 border-r text-center font-bold text-[#f8fafc]" style={{ borderColor: '#1e293b' }}>{item.ticker || 'N/A'}</td>
-                    <td className="p-3 border-r text-center font-semibold text-[#f8fafc] flex items-center justify-center gap-2" style={{ borderColor: '#1e293b' }}>
-                      {item.transaction_type || 'N/A'}
+                  <tr key={idx} style={{ backgroundColor: idx % 2 === 0 ? '#000000' : '#09090b' }} className="hover:bg-[#18181b] transition-colors border-b border-[#27272a]">
+                    <td className="p-3 border-r text-center text-[#a1a1aa]" style={{ borderColor: '#27272a' }}>{idx + 1}</td>
+                    <td className="p-3 border-r text-[#fafafa]" style={{ borderColor: '#27272a' }}>{item.representative || 'N/A'}</td>
+                    <td className="p-3 border-r text-center font-bold text-[#fafafa]" style={{ borderColor: '#27272a' }}>{symbol}</td>
+                    <td className="p-3 border-r text-center font-semibold text-[#fafafa] flex items-center justify-center gap-2" style={{ borderColor: '#27272a' }}>
+                      {transactionType}
                       <div className={`w-2 h-2 rounded-full ${isPurchase ? 'bg-[#10b981]' : 'bg-[#f43f5e]'}`} />
                     </td>
-                    <td className="p-3 border-r text-center text-[#38bdf8]" style={{ borderColor: '#1e293b' }}>{item.amount || 'N/A'}</td>
-                    <td className="p-3 text-center text-[#94a3b8]">{item.transaction_date || 'N/A'}</td>
+                    <td className="p-3 border-r text-center text-[#8b5cf6]" style={{ borderColor: '#27272a' }}>{item.amount || 'N/A'}</td>
+                    <td className="p-3 text-center text-[#a1a1aa]">{date}</td>
                   </tr>
                 );
               })

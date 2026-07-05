@@ -14,7 +14,7 @@ export default async function NewsPage() {
   const { data: rawData } = await supabase
     .from('raw_market_data')
     .select('payload')
-    .eq('data_type', 'news')
+    .eq('data_type', 'general_news')
     .single();
 
   const newsItems = rawData?.payload || [];
