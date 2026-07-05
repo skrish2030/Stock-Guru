@@ -38,8 +38,9 @@ interface NewsItem {
 }
 
 export default function DashboardClient({ initialTickers, initialNews }: { initialTickers: Ticker[], initialNews: NewsItem[] }) {
-  const [tickers] = useState<Ticker[]>(initialTickers);
+  const [tickers, setTickers] = useState<Ticker[]>(initialTickers);
   const [news] = useState<NewsItem[]>(initialNews);
+  const [alertsEnabled, setAlertsEnabled] = useState(false);
   
   const [activeTab, setActiveTab] = useState<'watchlist' | 'news_scanner'>('watchlist');
   const [selectedTicker, setSelectedTicker] = useState<Ticker | null>(null);
@@ -47,6 +48,66 @@ export default function DashboardClient({ initialTickers, initialNews }: { initi
   // Carousel State
   const [carouselIndex, setCarouselIndex] = useState(0);
   const carouselNews = news.slice(0, 5); // Take top 5 news items for carousel
+
+  // Sync state with notification permission status on load
+  useEffect(() => {
+    if ("Notification" in window) {
+      setAlertsEnabled(Notification.permission === 'granted');
+    }
+  }, []);
+
+  // Real-time live polling from Supabase when alerts are enabled
+  useEffect(() => {
+    if (!alertsEnabled) return;
+
+    const interval = setInterval(async () => {
+      console.log("[Dashboard] Polling real-time stock updates from Supabase...");
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+      if (!supabaseUrl || !supabaseKey) return;
+
+      try {
+        const { createClient } = await import('@supabase/supabase-js');
+        const supabaseClient = createClient(supabaseUrl, supabaseKey);
+        const { data: latest } = await supabaseClient
+          .from('alpha_tickers')
+          .select('*')
+          .order('score', { ascending: false })
+          .limit(30);
+
+        if (latest) {
+          setTickers(latest);
+        }
+      } catch (err) {
+        console.error("Live polling failed:", err);
+      }
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, [alertsEnabled]);
+
+  const handleToggleAlerts = () => {
+    if (alertsEnabled) {
+      setAlertsEnabled(false);
+      return;
+    }
+
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          setAlertsEnabled(true);
+          new Notification("🚨 Real-Time Risk Shield Active", {
+            body: "You will now receive desktop alerts for sudden stock drops & breakouts.",
+            icon: '/favicon.ico'
+          });
+        } else {
+          alert("Notification permission denied. Please allow notifications in your browser settings to enable real-time alerts.");
+        }
+      });
+    } else {
+      alert("This device/browser does not support native push notifications.");
+    }
+  };
 
   useEffect(() => {
     if (carouselNews.length === 0) return;
@@ -147,11 +208,22 @@ export default function DashboardClient({ initialTickers, initialNews }: { initi
               </p>
             </div>
             
-            {/* Big Green Checkbox representation */}
-            <div className="mt-4 flex items-center justify-center">
-              <div className="w-8 h-8 rounded bg-[#10b981]/20 border border-[#10b981] flex items-center justify-center text-[#10b981] font-bold text-lg">
+            {/* Clickable Green Checkbox (Toggles Real-Time Alerts) */}
+            <div className="mt-4 flex flex-col items-center justify-center gap-2">
+              <button 
+                onClick={handleToggleAlerts}
+                title="Click to toggle Real-Time Notifications & Live streaming updates"
+                className={`w-9 h-9 rounded border flex items-center justify-center font-bold text-lg transition-all duration-300 ${
+                  alertsEnabled 
+                    ? 'bg-[#10b981] border-[#10b981] text-black shadow-lg shadow-[#10b981]/20 scale-105' 
+                    : 'bg-[#10b981]/10 border-[#10b981]/40 text-[#10b981] hover:bg-[#10b981]/25 hover:border-[#10b981] cursor-pointer'
+                }`}
+              >
                 ✓
-              </div>
+              </button>
+              <span className={`text-[10px] font-black uppercase tracking-wider ${alertsEnabled ? 'text-[#10b981]' : 'text-[#a1a1aa]'}`}>
+                {alertsEnabled ? 'Real-Time Streaming Active 🟢' : 'Stream Paused (Click Checkbox to Activate) 🟡'}
+              </span>
             </div>
           </div>
 
