@@ -332,10 +332,28 @@ export default function DashboardClient({ initialTickers, initialNews }: { initi
           
           {/* News Panel */}
           <div className="col-span-3 border rounded-xl shadow-xl flex flex-col" style={{ backgroundColor: '#09090b', borderColor: '#27272a' }}>
-            <div className="p-3 border-b" style={{ borderColor: '#27272a' }}>
+            <div className="p-3 border-b flex justify-between items-center" style={{ borderColor: '#27272a' }}>
               <h2 className="text-sm font-bold flex items-center gap-2" style={{ color: '#38bdf8' }}>
-                <Newspaper className="w-4 h-4" /> Selected Ticker Activity & Real-Time News
+                <Newspaper className="w-4 h-4" /> Selected: {selectedTicker.symbol}
               </h2>
+              <div className="flex gap-2">
+                <a 
+                  href={`https://www.google.com/search?q=${selectedTicker.symbol}+stock+news`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-2.5 py-1.5 text-[10px] font-black uppercase rounded bg-[#18181b] border border-[#27272a] text-[#38bdf8] hover:bg-[#27272a] transition-all flex items-center gap-1"
+                >
+                  🔍 Google News
+                </a>
+                <a 
+                  href={`https://www.google.com/finance/quote/${selectedTicker.symbol}:US`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-2.5 py-1.5 text-[10px] font-black uppercase rounded bg-[#18181b] border border-[#27272a] text-[#8b5cf6] hover:bg-[#27272a] transition-all flex items-center gap-1"
+                >
+                  📊 Google Finance
+                </a>
+              </div>
             </div>
             <div className="p-4 flex-1 bg-[#000000] m-2 rounded border overflow-y-auto max-h-[350px]" style={{ borderColor: '#27272a' }}>
               <div className="space-y-6">
