@@ -25,6 +25,8 @@ interface Ticker {
   price: number;
   percent_change: number;
   ai_thesis: string;
+  company_description?: string;
+  why_invest?: string;
 }
 
 interface NewsItem {
@@ -335,21 +337,43 @@ export default function DashboardClient({ initialTickers, initialNews }: { initi
                 <Newspaper className="w-4 h-4" /> Selected Ticker Activity & Real-Time News
               </h2>
             </div>
-            <div className="p-4 flex-1 bg-[#000000] m-2 rounded border overflow-y-auto max-h-[250px]" style={{ borderColor: '#27272a' }}>
-              <div className="space-y-4">
+            <div className="p-4 flex-1 bg-[#000000] m-2 rounded border overflow-y-auto max-h-[350px]" style={{ borderColor: '#27272a' }}>
+              <div className="space-y-6">
+                {/* What This Company Does */}
                 <div>
-                  <h3 className="font-bold text-[#8b5cf6] flex items-center gap-2">
-                    <Briefcase className="w-4 h-4" /> Wall Street Senior Analyst Thesis
+                  <h3 className="text-xs font-black text-[#38bdf8] uppercase tracking-wider flex items-center gap-2">
+                    <Target className="w-3.5 h-3.5 text-[#38bdf8]" /> What This Company Does
                   </h3>
-                  <p className="text-sm text-[#d4d4d8] mt-3 leading-relaxed border-l-2 pl-3 border-[#8b5cf6] italic">
+                  <p className="text-xs text-[#fafafa] mt-2 leading-relaxed font-semibold">
+                    {selectedTicker.company_description || `${selectedTicker.company_name} is an active player in the ${selectedTicker.symbol} market space, driven by institutional and social interest.`}
+                  </p>
+                </div>
+
+                {/* Wall Street Verdict & Thesis */}
+                <div>
+                  <h3 className="text-xs font-black text-[#8b5cf6] uppercase tracking-wider flex items-center gap-2">
+                    <Briefcase className="w-3.5 h-3.5 text-[#8b5cf6]" /> Wall Street Scholar Verdict
+                  </h3>
+                  <p className="text-xs text-[#d4d4d8] mt-2 leading-relaxed border-l-2 pl-3 border-[#8b5cf6] italic">
                     {selectedTicker.ai_thesis && selectedTicker.ai_thesis !== 'No second opinion thesis provided.' 
                       ? selectedTicker.ai_thesis 
-                      : (
-                        `"Here is the bottom line on ${selectedTicker.company_name} (${selectedTicker.symbol}): The big hedge funds are ${selectedTicker.smart_money >= 50 ? "quietly loading up on shares right now (Smart Money Index: " + selectedTicker.smart_money.toFixed(1) + ")" : "sitting this one out for the moment"}. ${selectedTicker.retail_hype >= 50 ? "The general public is catching on, which means the retail crowd is adding fuel to the fire." : "The general public hasn't caught on yet, which makes this a fantastic stealth play."} Whenever I see this specific '${selectedTicker.archetype}' setup, it usually precedes a major move. My professional recommendation to you is simple: ${selectedTicker.action}."`
-                      )
+                      : `"Following a comprehensive audit of ${selectedTicker.company_name} (${selectedTicker.symbol}), the consensus of the committee is clear. While whale loading activity is ${selectedTicker.smart_money >= 60 ? 'exceptionally high' : 'moderate'}, the sentiment indicators highlight a '${selectedTicker.archetype}' setup. Recommendation: ${selectedTicker.action}."`
                     }
                   </p>
                 </div>
+
+                {/* Catalysts Bullets */}
+                {selectedTicker.why_invest && (
+                  <div>
+                    <h3 className="text-xs font-black text-[#10b981] uppercase tracking-wider flex items-center gap-2">
+                      <Rocket className="w-3.5 h-3.5 text-[#10b981]" /> Key Catalysts
+                    </h3>
+                    <div 
+                      className="text-xs text-[#a1a1aa] mt-2 space-y-1 list-disc pl-4"
+                      dangerouslySetInnerHTML={{ __html: selectedTicker.why_invest }}
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

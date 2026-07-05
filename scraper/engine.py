@@ -1190,21 +1190,21 @@ class EngineWorker:
             prompt = f"""You represent a consensus committee of senior Wall Street specialists:
 1. The Fundamental Analyst: Evaluates corporate fundamentals, news headlines, and macro catalysts.
 2. The Sentiment Strategist: Gauges retail momentum and social sentiment (Reddit, YouTube, Discord).
-3. The Institutional Whale Watcher: Tracks political and corporate insider transactions.
-4. The Risk & Compliance Officer: Evaluates downside risks and volatility.
+3. The Institutional Whale Watcher: Tracks political and corporate insider transactions (paying close attention to Institutional Whales like Warren Buffett/Berkshire, Cathie Wood/ARK, Michael Burry/Scion, or major asset managers like BlackRock/Vanguard).
+4. The Risk & Compliance Officer: Evaluates downside risks, valuation bubbles, and volatility.
 
-As the Chief Investment Officer (CIO), synthesize their collective viewpoints to identify and recommend hot breakout tickers.
-Your goal is to evaluate which stock has the absolute highest momentum in recent news and internal discussions, identify what stock is hot at the first place (early stage momentum breakout), and give a detailed thesis theory for it.
-Strictly ignore penny stocks (price < $10) in your evaluations and recommendations.
+As the Chief Investment Officer (CIO), synthesize their collective viewpoints to evaluate if a stock is actually worth the hype or if it is a retail bubble/trap.
+Your goal is to analyze what each company actually does, evaluate if the current insider/whale activity justifies a buy, and write a highly sophisticated recommendation.
+Strictly ignore penny stocks (price < $10) in your evaluations.
 
 For each ticker, decide:
 1. "ticker" (string, must exactly match the input ticker name)
-2. "score" (float, 0-100, representing the combined buy conviction based on structural feeds, institutional catalysts, and news/discussion momentum)
-3. "archetype" (string, e.g., 'Stealth Whale 📈', 'Golden Setup 🎯', 'Hype Breakout 🔥', 'Retail Trap ⚠️', 'Neutral Setup ⚖️')
+2. "score" (float, 0-100, representing the combined buy conviction based on structural feeds, whale/asset manager catalysts, and news momentum)
+3. "archetype" (string, e.g., 'Whale Magnet 🐳', 'Golden Setup 🌟', 'Hype Breakout 🚀', 'Retail Bubble Trap ⚠️', 'Neutral Setup ⚖️')
 4. "action" (string, e.g., 'Accumulate (Long)', 'Strong Buy (High Conf)', 'Ride Hype (Day Trade)', 'Short / Exit', 'Watch / Hold')
-5. "thesis" (string, a sophisticated 3-sentence summary of the committee consensus. Sentence 1: The Fundamental Analyst's take on corporate catalysts/news. Sentence 2: The Sentiment/Whale Analyst's take on social momentum and insider flows. Sentence 3: The CIO's risk-adjusted tactical recommendation.)
-6. "description" (string, a concise 1-2 sentence description of what the company does/its core business)
-7. "why_invest" (string containing HTML bullet points, e.g. "<ul><li>Reason 1</li><li>Reason 2</li></ul>", detailing 2-3 key reasons why to invest today)
+5. "thesis" (string, a sophisticated 3-sentence summary of the committee consensus. Sentence 1: The Fundamental Analyst's take on corporate catalysts, news, and whether it's a bubble. Sentence 2: The Sentiment/Whale Analyst's take on institutional/whale flows (e.g. Cathie Wood, Buffett) and social buzz. Sentence 3: The CIO's risk-adjusted recommendation on whether it is actually worth buying today.)
+6. "description" (string, a concise 1-2 sentence description of what the company actually does, its core products, business model, and sector)
+7. "why_invest" (string containing HTML bullet points, e.g. "<ul><li>Reason 1</li><li>Reason 2</li></ul>", detailing 2-3 key catalysts why this is a genuine investment or why it's a bubble to avoid)
 
 Strictly return only a valid raw JSON array of objects, no markdown formatting (no ```json or ```).
 
