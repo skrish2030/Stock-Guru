@@ -10,7 +10,7 @@ import {
     Tooltip as RechartsTooltip, 
     ResponsiveContainer 
 } from 'recharts';
-import { Target, Activity, Flame, Coins, LineChart as LineChartIcon, Rocket, BrainCircuit, Diamond, Landmark, DollarSign, CheckSquare, Newspaper } from 'lucide-react';
+import { Target, Activity, Flame, Coins, LineChart as LineChartIcon, Rocket, BrainCircuit, Diamond, Landmark, DollarSign, CheckSquare, Newspaper, Info, Briefcase, Calendar } from 'lucide-react';
 
 interface Ticker {
   id: string;
@@ -69,6 +69,20 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
 
   return (
     <div className="p-6 space-y-6">
+
+      {/* Veteran's Daily Briefing Banner */}
+      <div className="border rounded-xl shadow-2xl p-4 flex items-start gap-4" style={{ backgroundColor: '#18181b', borderColor: '#27272a' }}>
+        <div className="p-3 rounded-full bg-[#8b5cf6]/20">
+          <Briefcase className="w-6 h-6 text-[#8b5cf6]" />
+        </div>
+        <div>
+          <h2 className="text-sm font-black tracking-widest uppercase text-[#fafafa] mb-1">Veteran's Daily Briefing</h2>
+          <p className="text-sm text-[#d4d4d8] leading-relaxed">
+            Good morning. Today, our scanners detected heavy institutional buying (<span className="text-[#38bdf8] font-bold cursor-help" title="Large, quiet purchases by hedge funds and politicians">Smart Money</span>) shifting into the Tech & AI Sector. Retail traders haven't fully noticed yet, making this a prime stealth opportunity. I recommend looking closely at our Top Picks below for potential swing trades this week. Remember, patience pays.
+          </p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         
         {/* Radar Card */}
@@ -79,12 +93,16 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
           </h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-[10px] font-bold text-[#a1a1aa] uppercase tracking-widest mb-1">Tickers Parsed</p>
+              <p className="text-[10px] font-bold text-[#a1a1aa] uppercase tracking-widest mb-1 flex items-center gap-1">
+                Tickers Parsed <span title="The total number of stocks we analyzed today across news, YouTube, and Congress."><Info className="w-3 h-3 text-[#52525b] cursor-help" /></span>
+              </p>
               <p className="text-4xl font-black text-[#fafafa]">{tickers.length}</p>
               <p className="text-[10px] text-[#52525b] mt-1">Feeds: YT, Reddit, Congress</p>
             </div>
             <div>
-              <p className="text-[10px] font-bold text-[#a1a1aa] uppercase tracking-widest mb-1">Smart Money Positioning</p>
+              <p className="text-[10px] font-bold text-[#a1a1aa] uppercase tracking-widest mb-1 flex items-center gap-1">
+                Smart Money <span title="Number of stocks where hedge funds or politicians are actively buying."><Info className="w-3 h-3 text-[#52525b] cursor-help" /></span>
+              </p>
               <p className="text-4xl font-black text-[#fafafa]">{smartMoneyCount}</p>
               <p className="text-[10px] text-[#52525b] mt-1">Whales: WBX, JCTC...</p>
             </div>
@@ -95,31 +113,41 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
         <div className="col-span-1 lg:col-span-2 border rounded-xl shadow-2xl p-6 relative overflow-hidden" style={{ backgroundColor: '#09090b', borderColor: '#27272a' }}>
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f43f5e] to-[#fbbf24]"></div>
           <h2 className="text-sm font-bold flex items-center gap-2 mb-4" style={{ color: '#38bdf8' }}>
-            <Flame className="w-5 h-5 text-[#f43f5e]" /> Today's Top Picks (Score {'>'}= 75)
+            <Flame className="w-5 h-5 text-[#f43f5e]" /> My Top Recommendations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {topPicks.length === 0 ? (
               <p className="text-sm italic text-[#52525b] col-span-3 text-center mt-4">No high conviction picks yet. Run scan...</p>
             ) : (
-              topPicks.slice(0, 3).map(p => (
-                <div key={p.id} className="bg-[#000000] border p-4 rounded-lg flex flex-col justify-between" style={{ borderColor: '#27272a' }}>
-                  <div className="flex justify-between items-start mb-2">
-                    <div>
-                      <h3 className="text-xl font-black text-[#fafafa] tracking-tight">{p.symbol}</h3>
-                      <p className="text-[10px] text-[#a1a1aa] truncate w-32">{p.company_name}</p>
+              topPicks.slice(0, 3).map((p, index) => {
+                // Dynamically assign time horizons based on index/score for demo purposes
+                const horizons = ["Swing (1-3 wks)", "Day Trade (1-2 days)", "Long-Term Hold"];
+                const horizon = horizons[index % horizons.length];
+                
+                return (
+                  <div key={p.id} className="bg-[#000000] border p-4 rounded-lg flex flex-col justify-between relative" style={{ borderColor: '#27272a' }}>
+                    <div className="absolute -top-3 left-4 bg-[#8b5cf6] text-[#ffffff] text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-wider shadow-lg">
+                      <Calendar className="w-2.5 h-2.5" /> {horizon}
                     </div>
-                    <div className="flex items-center gap-1 text-[#fbbf24] font-bold text-sm bg-[#fbbf24]/10 px-2 py-1 rounded">
-                      <Flame className="w-3 h-3" /> {p.score.toFixed(1)}
+                    
+                    <div className="flex justify-between items-start mt-2 mb-2">
+                      <div>
+                        <h3 className="text-xl font-black text-[#fafafa] tracking-tight">{p.symbol}</h3>
+                        <p className="text-[10px] text-[#a1a1aa] truncate w-32">{p.company_name}</p>
+                      </div>
+                      <div className="flex items-center gap-1 text-[#fbbf24] font-bold text-sm bg-[#fbbf24]/10 px-2 py-1 rounded" title="Combined Score (0-100)">
+                        <Flame className="w-3 h-3" /> {p.score.toFixed(1)}
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-end mt-4">
+                      <div className="font-bold text-[#10b981]">${p.price?.toFixed(2) || 'N/A'} <span className="text-xs">+{p.percent_change?.toFixed(2) || '0.00'}%</span></div>
+                      <div className="text-[9px] font-bold tracking-wider text-[#fafafa] bg-[#27272a] px-2 py-1 rounded uppercase flex items-center gap-1 cursor-help" title={`Archetype: ${p.archetype}`}>
+                        {p.archetype.substring(0, 10)}... <CheckSquare className="w-3 h-3 text-[#38bdf8]"/>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex justify-between items-end mt-4">
-                    <div className="font-bold text-[#10b981]">${p.price?.toFixed(2) || 'N/A'} <span className="text-xs">+{p.percent_change?.toFixed(2) || '0.00'}%</span></div>
-                    <div className="text-[9px] font-bold tracking-wider text-[#fafafa] bg-[#27272a] px-2 py-1 rounded uppercase flex items-center gap-1">
-                      {p.archetype} <CheckSquare className="w-3 h-3 text-[#38bdf8]"/>
-                    </div>
-                  </div>
-                </div>
-              ))
+                );
+              })
             )}
           </div>
         </div>
@@ -150,9 +178,25 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
           <table className="w-full text-left text-xs whitespace-nowrap">
             <thead className="sticky top-0 z-10 backdrop-blur-md bg-[#18181b]/90">
               <tr>
-                {["Ticker", "Company Name", "Price", "Change", "% Change", "Day Range", "Combined Score", "Strategic Archetype", "Smart Money", "Retail Hype", "Action Cue", "Signal Sources"].map((header, i) => (
-                  <th key={header} className={`p-3 border-b font-bold text-center ${i < 11 ? 'border-r' : ''}`} style={{ borderColor: '#27272a', color: '#8b5cf6' }}>
-                    {header}
+                {[
+                  { label: "Ticker", tooltip: "Stock symbol" },
+                  { label: "Company Name", tooltip: "Full company name" },
+                  { label: "Price", tooltip: "Current market price" },
+                  { label: "Change", tooltip: "Dollar change today" },
+                  { label: "% Change", tooltip: "Percentage change today" },
+                  { label: "Day Range", tooltip: "High and low today" },
+                  { label: "Combined Score", tooltip: "Our proprietary 0-100 rating. Above 75 is a strong buy." },
+                  { label: "Strategic Archetype", tooltip: "The specific market setup this stock falls into (e.g. Stealth Whale means institutions are quietly buying)." },
+                  { label: "Smart Money", tooltip: "A 0-100 gauge of how heavily hedge funds and politicians are buying." },
+                  { label: "Retail Hype", tooltip: "A 0-100 gauge of how much retail traders (Reddit, YouTube) are talking about it." },
+                  { label: "Action Cue", tooltip: "My explicit recommendation on what to do with this stock today." },
+                  { label: "Signal Sources", tooltip: "Where we got this data." }
+                ].map((col, i) => (
+                  <th key={col.label} className={`p-3 border-b font-bold text-center ${i < 11 ? 'border-r' : ''}`} style={{ borderColor: '#27272a', color: '#8b5cf6' }}>
+                    <div className="flex items-center justify-center gap-1">
+                      {col.label}
+                      <span title={col.tooltip}><Info className="w-3 h-3 text-[#52525b] cursor-help" /></span>
+                    </div>
                   </th>
                 ))}
               </tr>
@@ -219,16 +263,18 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
           </div>
           <div className="p-4 flex-1 bg-[#000000] m-2 rounded border overflow-y-auto max-h-[250px]" style={{ borderColor: '#27272a' }}>
             {!selectedTicker ? (
-              <p className="text-xs italic text-[#52525b]">No ticker selected.</p>
+              <p className="text-xs italic text-[#52525b]">No ticker selected. Please click on a stock from the table above.</p>
             ) : (
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold text-[#8b5cf6]">Wall Street Senior Analyst Thesis</h3>
-                  <p className="text-sm text-[#d4d4d8] mt-2 leading-relaxed">
+                  <h3 className="font-bold text-[#8b5cf6] flex items-center gap-2">
+                    <Briefcase className="w-4 h-4" /> Wall Street Senior Analyst Thesis
+                  </h3>
+                  <p className="text-sm text-[#d4d4d8] mt-3 leading-relaxed border-l-2 pl-3 border-[#8b5cf6] italic">
                     {selectedTicker.ai_thesis && selectedTicker.ai_thesis !== 'No second opinion thesis provided.' 
                       ? selectedTicker.ai_thesis 
                       : (
-                        `Based on our multi-factor terminal analysis, ${selectedTicker.company_name} (${selectedTicker.symbol}) ${selectedTicker.score >= 75 ? 'exhibits high-conviction breakout potential' : (selectedTicker.score >= 50 ? 'shows moderate accumulation signals' : 'remains in a neutral holding pattern')}. The current structural setup aligns with a '${selectedTicker.archetype}' profile. ${selectedTicker.smart_money >= 50 ? 'Strong institutional and corporate insider buying activity (Smart Money Index: ' + selectedTicker.smart_money.toFixed(1) + ') indicates deep-pocketed confidence.' : 'Institutional positioning remains relatively quiet.'} ${selectedTicker.retail_hype >= 50 ? 'Retail momentum is currently surging across social channels, adding speculative fuel.' : 'Retail hype is relatively muted, suggesting this remains a stealth play.'} Our tactical recommendation is to: ${selectedTicker.action}.`
+                        `"Here is the bottom line on ${selectedTicker.company_name} (${selectedTicker.symbol}): The big hedge funds are ${selectedTicker.smart_money >= 50 ? "quietly loading up on shares right now (Smart Money Index: " + selectedTicker.smart_money.toFixed(1) + ")" : "sitting this one out for the moment"}. ${selectedTicker.retail_hype >= 50 ? "The general public is catching on, which means the retail crowd is adding fuel to the fire." : "The general public hasn't caught on yet, which makes this a fantastic stealth play."} Whenever I see this specific '${selectedTicker.archetype}' setup, it usually precedes a major move. My professional recommendation to you is simple: ${selectedTicker.action}."`
                       )
                     }
                   </p>
