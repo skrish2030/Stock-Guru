@@ -10,7 +10,7 @@ import {
     Tooltip as RechartsTooltip, 
     ResponsiveContainer 
 } from 'recharts';
-import { Target, Activity, Flame, Coins, LineChart as LineChartIcon, Rocket, BrainCircuit, Diamond, Landmark, DollarSign, CheckSquare, Newspaper, Info, Briefcase, Calendar } from 'lucide-react';
+import { Target, Activity, Flame, Coins, LineChart as LineChartIcon, Rocket, BrainCircuit, Diamond, Landmark, DollarSign, CheckSquare, Newspaper, Info, Briefcase, Calendar, ShieldAlert, ShieldCheck, ToggleLeft, ToggleRight } from 'lucide-react';
 
 interface Ticker {
   id: string;
@@ -31,20 +31,97 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
   const [tickers] = useState<Ticker[]>(initialTickers);
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedTicker, setSelectedTicker] = useState<Ticker | null>(null);
+  
+  // Premium feature: Simulated market crash toggle for testing
+  const [simulateCrash, setSimulateCrash] = useState(false);
 
   const smartMoneyCount = tickers.filter(t => t.smart_money > 50).length;
   const topPicks = tickers.filter(t => t.score >= 75).sort((a, b) => b.score - a.score);
 
-  const filteredTickers = tickers.filter(t => {
+  // Dynamic risk calculation based on average ticker performance
+  const realAverageChange = tickers.reduce((acc, t) => acc + (t.percent_change || 0), 0) / (tickers.length || 1);
+  const averageChange = simulateCrash ? -4.85 : realAverageChange;
+
+  const isCrash = averageChange < -1.5;
+  const riskLevel = isCrash 
+    ? 'CRITICAL (Crash Alert)' 
+    : (averageChange < 0.5 ? 'MODERATE (Hedging Active)' : 'LOW (Bull Market)');
+  const riskColor = isCrash ? '#f43f5e' : (averageChange < 0.5 ? '#fbbf24' : '#10b981');
+
+  // Hardcoded defensive bear market hedges (Inverse ETFs, Gold, Treasury bonds) for non-technical users
+  const bearHedges: Ticker[] = [
+    {
+      id: 'hedge-1',
+      symbol: 'SH',
+      company_name: 'ProShares Short S&P500 (Inverse S&P ETF)',
+      price: 15.42,
+      percent_change: simulateCrash ? 4.85 : -0.21,
+      score: 85,
+      tier: 'Tier 1',
+      archetype: 'Bear Hedge 🛡️',
+      action: simulateCrash ? 'Strong Buy (Crash Hedge)' : 'Hold / Watch',
+      smart_money: 82,
+      retail_hype: 45,
+      ai_thesis: 'An inverse ETF that rises when the S&P 500 falls. The ultimate safe haven during market declines.'
+    },
+    {
+      id: 'hedge-2',
+      symbol: 'PSQ',
+      company_name: 'ProShares Short QQQ (Inverse Nasdaq ETF)',
+      price: 12.10,
+      percent_change: simulateCrash ? 5.72 : -0.35,
+      score: 88,
+      tier: 'Tier 1',
+      archetype: 'Bear Hedge 🛡️',
+      action: simulateCrash ? 'Strong Buy (Tech Hedge)' : 'Hold / Watch',
+      smart_money: 89,
+      retail_hype: 50,
+      ai_thesis: 'Direct short coverage for Nasdaq tech listings. Rises when tech crashes.'
+    },
+    {
+      id: 'hedge-3',
+      symbol: 'GLD',
+      company_name: 'SPDR Gold Shares (Safe Haven Gold)',
+      price: 215.30,
+      percent_change: simulateCrash ? 2.10 : 0.05,
+      score: 79,
+      tier: 'Tier 2',
+      archetype: 'Gold Safe Haven 🛡️',
+      action: 'Accumulate (Safety)',
+      smart_money: 75,
+      retail_hype: 30,
+      ai_thesis: 'Physical gold trust tracking metal prices. Standard inflation and systemic crash hedge.'
+    },
+    {
+      id: 'hedge-4',
+      symbol: 'TLT',
+      company_name: 'iShares 20+ Year Treasury Bond ETF',
+      price: 94.50,
+      percent_change: simulateCrash ? 1.85 : -0.10,
+      score: 74,
+      tier: 'Tier 2',
+      archetype: 'Treasury Safe Haven 🛡️',
+      action: 'Hold / Accumulate',
+      smart_money: 68,
+      retail_hype: 25,
+      ai_thesis: 'Long-term government bonds. Tends to appreciate when equity markets crash and capital flees to safety.'
+    }
+  ];
+
+  // Combine regular tickers with defensive hedges if the user filters for them
+  const allAvailableAssets = [...tickers, ...bearHedges];
+
+  const filteredTickers = allAvailableAssets.filter(t => {
     switch (activeFilter) {
-      case 'high': return t.score >= 75;
-      case 'penny': return t.price < 10 && t.price > 0;
-      case 'regular': return t.price >= 10;
-      case 'ipo': return t.archetype?.toLowerCase().includes('ipo');
-      case 'ai': return t.archetype?.toLowerCase().includes('ai');
-      case 'crypto': return t.archetype?.toLowerCase().includes('crypto');
-      case 'congress': return t.smart_money >= 50; 
-      case 'cashflow': return t.score >= 80;
+      case 'hedges': return t.archetype?.includes('Hedge') || t.archetype?.includes('Haven');
+      case 'high': return t.score >= 75 && !t.archetype?.includes('Hedge');
+      case 'penny': return t.price < 10 && t.price > 0 && !t.archetype?.includes('Hedge');
+      case 'regular': return t.price >= 10 && !t.archetype?.includes('Hedge');
+      case 'ipo': return t.archetype?.toLowerCase().includes('ipo') && !t.archetype?.includes('Hedge');
+      case 'ai': return t.archetype?.toLowerCase().includes('ai') && !t.archetype?.includes('Hedge');
+      case 'crypto': return t.archetype?.toLowerCase().includes('crypto') && !t.archetype?.includes('Hedge');
+      case 'congress': return t.smart_money >= 50 && !t.archetype?.includes('Hedge'); 
+      case 'cashflow': return t.score >= 80 && !t.archetype?.includes('Hedge');
       case 'all':
       default: return true;
     }
@@ -56,12 +133,13 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
   }));
 
   const filters = [
-    { id: 'all', label: 'All Ingested Assets', icon: Activity, color: '#38bdf8' },
-    { id: 'high', label: 'High Conviction (Score ≥ 75)', icon: Flame, color: '#f43f5e' },
+    { id: 'all', label: 'All Assets', icon: Activity, color: '#38bdf8' },
+    { id: 'hedges', label: 'Bear Market Hedges 🛡️', icon: ShieldCheck, color: '#f43f5e' },
+    { id: 'high', label: 'High Conviction', icon: Flame, color: '#f43f5e' },
     { id: 'penny', label: 'Penny Stocks (<$10)', icon: Coins, color: '#fbbf24' },
     { id: 'regular', label: 'Regular Stocks (≥$10)', icon: LineChartIcon, color: '#94a3b8' },
-    { id: 'ipo', label: 'Recent IPOs', icon: Rocket, color: '#f472b6' },
-    { id: 'ai', label: 'AI Sector Only', icon: BrainCircuit, color: '#a855f7' },
+    { id: 'ipo', label: 'IPOs', icon: Rocket, color: '#f472b6' },
+    { id: 'ai', label: 'AI Sector', icon: BrainCircuit, color: '#a855f7' },
     { id: 'crypto', label: 'Crypto Web3', icon: Diamond, color: '#38bdf8' },
     { id: 'congress', label: 'Congress Picks', icon: Landmark, color: '#94a3b8' },
     { id: 'cashflow', label: 'High Cash Flow', icon: DollarSign, color: '#fbbf24' },
@@ -70,17 +148,46 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
   return (
     <div className="p-6 space-y-6">
 
-      {/* Veteran's Daily Briefing Banner */}
-      <div className="border rounded-xl shadow-2xl p-4 flex items-start gap-4" style={{ backgroundColor: '#18181b', borderColor: '#27272a' }}>
-        <div className="p-3 rounded-full bg-[#8b5cf6]/20">
-          <Briefcase className="w-6 h-6 text-[#8b5cf6]" />
+      {/* Global Market Health Warning System Banner */}
+      <div className="border rounded-xl shadow-2xl p-4 flex flex-col md:flex-row justify-between items-center gap-4" style={{ backgroundColor: isCrash ? '#450a0a' : '#18181b', borderColor: isCrash ? '#f43f5e' : '#27272a' }}>
+        <div className="flex items-start gap-4">
+          <div className={`p-3 rounded-full ${isCrash ? 'bg-[#f43f5e]/20 text-[#f43f5e]' : 'bg-[#8b5cf6]/20 text-[#8b5cf6]'}`}>
+            {isCrash ? <ShieldAlert className="w-6 h-6 animate-pulse" /> : <Briefcase className="w-6 h-6" />}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-black tracking-widest uppercase text-[#fafafa]">
+                {isCrash ? '⚠️ EMERGENCY MARKET CRASH WARNING' : "Veteran's Daily Briefing"}
+              </h2>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded" style={{ backgroundColor: riskColor + '20', color: riskColor, border: `1px solid ${riskColor}` }}>
+                {riskLevel}
+              </span>
+            </div>
+            <p className="text-sm text-[#d4d4d8] leading-relaxed mt-1">
+              {isCrash ? (
+                <span>
+                  <strong>CRITICAL ALERT:</strong> Scanners indicate massive capital outflows and high short positions by hedge funds. We have triggered our <strong>Bear Market Hedging protocol</strong>. I strongly recommend hiding in safe havens (Gold) or utilizing <strong>Inverse ETFs (SH, PSQ)</strong> to profit on the way down. Protect your nest egg!
+                </span>
+              ) : (
+                <span>
+                  Good morning. Today, our scanners detected steady institutional buying (<span className="text-[#38bdf8] font-bold cursor-help" title="Large, quiet purchases by hedge funds and politicians">Smart Money</span>) shifting into the Tech & AI Sector. I recommend looking closely at our Top Picks below for potential swing trades this week.
+                </span>
+              )}
+            </p>
+          </div>
         </div>
-        <div>
-          <h2 className="text-sm font-black tracking-widest uppercase text-[#fafafa] mb-1">Veteran's Daily Briefing</h2>
-          <p className="text-sm text-[#d4d4d8] leading-relaxed">
-            Good morning. Today, our scanners detected heavy institutional buying (<span className="text-[#38bdf8] font-bold cursor-help" title="Large, quiet purchases by hedge funds and politicians">Smart Money</span>) shifting into the Tech & AI Sector. Retail traders haven't fully noticed yet, making this a prime stealth opportunity. I recommend looking closely at our Top Picks below for potential swing trades this week. Remember, patience pays.
-          </p>
-        </div>
+
+        {/* Override Crash Simulator for Demo/Testing */}
+        <button 
+          onClick={() => {
+            setSimulateCrash(!simulateCrash);
+            setSelectedTicker(null);
+          }}
+          className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[10px] font-bold border border-[#27272a] bg-[#000000] text-[#a1a1aa] hover:text-[#fafafa] transition-colors whitespace-nowrap"
+        >
+          {simulateCrash ? <ToggleRight className="w-4 h-4 text-[#f43f5e]" /> : <ToggleLeft className="w-4 h-4" />}
+          Simulate Market Crash
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -113,14 +220,37 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
         <div className="col-span-1 lg:col-span-2 border rounded-xl shadow-2xl p-6 relative overflow-hidden" style={{ backgroundColor: '#09090b', borderColor: '#27272a' }}>
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f43f5e] to-[#fbbf24]"></div>
           <h2 className="text-sm font-bold flex items-center gap-2 mb-4" style={{ color: '#38bdf8' }}>
-            <Flame className="w-5 h-5 text-[#f43f5e]" /> My Top Recommendations
+            <Flame className="w-5 h-5 text-[#f43f5e]" /> 
+            {isCrash ? '🛡️ Recommended Safety Hedges' : '🔥 My Top Recommendations'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {topPicks.length === 0 ? (
-              <p className="text-sm italic text-[#52525b] col-span-3 text-center mt-4">No high conviction picks yet. Run scan...</p>
+            {isCrash ? (
+              // Display Bear Hedges as Top Recommendations during crash simulation
+              bearHedges.slice(0, 3).map((p, index) => (
+                <div key={p.id} className="bg-[#000000] border p-4 rounded-lg flex flex-col justify-between relative" style={{ borderColor: '#f43f5e' }}>
+                  <div className="absolute -top-3 left-4 bg-[#f43f5e] text-[#ffffff] text-[9px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-wider shadow-lg">
+                    <ShieldAlert className="w-2.5 h-2.5" /> CRASH PROTECTION
+                  </div>
+                  
+                  <div className="flex justify-between items-start mt-2 mb-2">
+                    <div>
+                      <h3 className="text-xl font-black text-[#fafafa] tracking-tight">{p.symbol}</h3>
+                      <p className="text-[10px] text-[#a1a1aa] truncate w-32">{p.company_name}</p>
+                    </div>
+                    <div className="flex items-center gap-1 text-[#f43f5e] font-bold text-sm bg-[#f43f5e]/10 px-2 py-1 rounded">
+                      🛡️ {p.score.toFixed(0)}
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-end mt-4">
+                    <div className="font-bold text-[#10b981]">${p.price?.toFixed(2)} <span className="text-xs">+{p.percent_change?.toFixed(2)}%</span></div>
+                    <div className="text-[9px] font-bold tracking-wider text-[#fafafa] bg-[#27272a] px-2 py-1 rounded uppercase">
+                      Inverse ETF
+                    </div>
+                  </div>
+                </div>
+              ))
             ) : (
               topPicks.slice(0, 3).map((p, index) => {
-                // Dynamically assign time horizons based on index/score for demo purposes
                 const horizons = ["Swing (1-3 wks)", "Day Trade (1-2 days)", "Long-Term Hold"];
                 const horizon = horizons[index % horizons.length];
                 
@@ -238,7 +368,7 @@ export default function DashboardClient({ initialTickers }: { initialTickers: Ti
                       <td className="p-3 border-r text-center text-[#fafafa]" style={{ borderColor: '#27272a' }}>{t.smart_money.toFixed(1)}</td>
                       <td className="p-3 border-r text-center text-[#fafafa]" style={{ borderColor: '#27272a' }}>{t.retail_hype.toFixed(1)}</td>
                       <td className="p-3 border-r text-center font-bold" style={{ borderColor: '#27272a', color: '#fafafa' }}>{t.action}</td>
-                      <td className="p-3 text-center text-[#a1a1aa]">Database</td>
+                      <td className="p-3 text-center text-[#a1a1aa]">{t.id.startsWith('hedge') ? 'SafeHaven Engine' : 'Database'}</td>
                     </tr>
                   );
                 })

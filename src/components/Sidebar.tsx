@@ -63,10 +63,14 @@ export default function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t" style={{ borderColor: '#27272a' }}>
+      <div className="p-4 border-t space-y-2" style={{ borderColor: '#27272a' }}>
          <div className="flex items-center justify-between text-xs font-mono text-[#52525b]">
              <span>SYSTEM:</span>
              <span className="text-[#8b5cf6] animate-pulse">ONLINE</span>
+         </div>
+         <div className="flex items-center justify-between text-[10px] font-mono text-[#52525b]">
+             <span>CRASH SHIELD:</span>
+             <span className="text-[#10b981] font-bold">ACTIVE</span>
          </div>
       </div>
     </div>

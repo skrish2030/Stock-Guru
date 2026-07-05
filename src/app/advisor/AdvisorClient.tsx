@@ -17,14 +17,23 @@ export default function AdvisorClient({ initialTickers }: AdvisorProps) {
 
   // Generate mock allocation based on the top 4 tickers (since the screenshot shows JCTC, WBX, CREX, PSNY)
   const generateAllocation = () => {
-    // Dummy top 4 to match the screenshot
-    const top4 = [
-      { asset: 'JCTC', percentage: 40, strategy: 'Stealth Whale', fit: 'High Conviction Fit', fitColor: '#10b981' },
-      { asset: 'WBX', percentage: 30, strategy: 'Stealth Whale', fit: 'Optimal Alignment', fitColor: '#10b981' },
-      { asset: 'CREX', percentage: 20, strategy: 'Stealth Whale', fit: 'Moderate Support', fitColor: '#eab308' },
-      { asset: 'PSNY', percentage: 10, strategy: 'Stealth Whale', fit: 'Speculative Additive', fitColor: '#eab308' }
-    ];
-    setAllocation(top4);
+    if (style.includes('Capital Preservation')) {
+      const defensive = [
+        { asset: 'SH', percentage: 40, strategy: 'Inverse S&P 500 ETF', fit: 'Strong Capital Protection', fitColor: '#10b981' },
+        { asset: 'GLD', percentage: 30, strategy: 'Physical Gold Haven', fit: 'Optimal Inflation Hedge', fitColor: '#10b981' },
+        { asset: 'PSQ', percentage: 20, strategy: 'Inverse Nasdaq ETF', fit: 'Tech Outflow Offset', fitColor: '#10b981' },
+        { asset: 'TLT', percentage: 10, strategy: 'Long-Term Treasury Bond', fit: 'Safe Flight-to-Quality', fitColor: '#eab308' }
+      ];
+      setAllocation(defensive);
+    } else {
+      const top4 = [
+        { asset: 'JCTC', percentage: 40, strategy: 'Stealth Whale', fit: 'High Conviction Fit', fitColor: '#10b981' },
+        { asset: 'WBX', percentage: 30, strategy: 'Stealth Whale', fit: 'Optimal Alignment', fitColor: '#10b981' },
+        { asset: 'CREX', percentage: 20, strategy: 'Stealth Whale', fit: 'Moderate Support', fitColor: '#eab308' },
+        { asset: 'PSNY', percentage: 10, strategy: 'Stealth Whale', fit: 'Speculative Additive', fitColor: '#eab308' }
+      ];
+      setAllocation(top4);
+    }
     setHasGenerated(true);
   };
 
@@ -57,6 +66,7 @@ export default function AdvisorClient({ initialTickers }: AdvisorProps) {
               <option>Value Investing (Safe & Steady)</option>
               <option>Dividend Yield (Passive Income)</option>
               <option>Aggressive Trading (High Momentum)</option>
+              <option>Capital Preservation (Bear Market Hedge 🛡️)</option>
             </select>
           </div>
 
@@ -157,10 +167,18 @@ export default function AdvisorClient({ initialTickers }: AdvisorProps) {
           {/* Allocation Progress Bar */}
           {hasGenerated && (
             <div className="mt-6 flex h-6 rounded-md overflow-hidden text-[10px] font-bold text-[#000000] border border-[#27272a]">
-              <div style={{ width: '40%', backgroundColor: '#a855f7' }} className="flex items-center justify-center">JCTC (40%)</div>
-              <div style={{ width: '30%', backgroundColor: '#38bdf8' }} className="flex items-center justify-center">WBX (30%)</div>
-              <div style={{ width: '20%', backgroundColor: '#10b981' }} className="flex items-center justify-center">CREX (20%)</div>
-              <div style={{ width: '10%', backgroundColor: '#eab308' }} className="flex items-center justify-center">PSNY (10%)</div>
+              {allocation.map((item, idx) => {
+                const colors = ['#a855f7', '#38bdf8', '#10b981', '#eab308'];
+                return (
+                  <div 
+                    key={item.asset}
+                    style={{ width: `${item.percentage}%`, backgroundColor: colors[idx % colors.length] }} 
+                    className="flex items-center justify-center"
+                  >
+                    {item.asset} ({item.percentage}%)
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
