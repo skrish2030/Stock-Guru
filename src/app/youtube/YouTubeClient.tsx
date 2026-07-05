@@ -54,11 +54,23 @@ export default function YouTubeClient({ initialData }: { initialData: YouTubeIte
                   </td>
                   <td className="p-3 border-r text-center text-[#dfb86c]" style={{ borderColor: '#1e293b' }}>{item.channel || 'N/A'}</td>
                   <td className="p-3 border-r text-center text-[#94a3b8]" style={{ borderColor: '#1e293b' }}>{item.published_at || 'N/A'}</td>
-                  <td className="p-3 border-r text-center font-bold text-[#10b981] truncate max-w-[150px]" style={{ borderColor: '#1e293b' }}>
-                    {item.video_tickers?.join(', ') || 'None'}
+                  <td className="p-0 border-r align-top" style={{ borderColor: '#1e293b' }}>
+                    <div className="max-h-[150px] overflow-y-auto p-3 scrollbar-thin scrollbar-thumb-[#374151]">
+                      <ul className="text-left font-bold text-[#10b981] space-y-1 ml-4">
+                        {item.video_tickers?.map((t, i) => (
+                          <li key={i}>• {t}</li>
+                        )) || <li className="text-[#64748b] font-normal italic">None</li>}
+                      </ul>
+                    </div>
                   </td>
-                  <td className="p-3 border-r text-center font-bold text-[#f43f5e] truncate max-w-[150px]" style={{ borderColor: '#1e293b' }}>
-                    {item.comment_tickers?.join(', ') || 'None'}
+                  <td className="p-0 border-r align-top" style={{ borderColor: '#1e293b' }}>
+                    <div className="max-h-[150px] overflow-y-auto p-3 scrollbar-thin scrollbar-thumb-[#374151]">
+                      <ul className="text-left font-bold text-[#f43f5e] space-y-1 ml-4">
+                        {item.comment_tickers?.map((t, i) => (
+                          <li key={i}>• {t}</li>
+                        )) || <li className="text-[#64748b] font-normal italic">None</li>}
+                      </ul>
+                    </div>
                   </td>
                   <td className="p-3 text-center text-[#94a3b8]">{item.search_query || 'N/A'}</td>
                 </tr>

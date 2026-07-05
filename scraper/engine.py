@@ -1298,7 +1298,7 @@ Data to analyze:
                 self.log("[*] Pushing Ticker Insights...")
                 ticker_inserts = []
                 for ticker, meta in ranked_results:
-                    quote = meta.get("quote", {})
+                    quote = meta.get("quote") or {}
                     ticker_inserts.append({
                         "symbol": ticker,
                         "company_name": meta.get("company_name"),
@@ -1313,8 +1313,8 @@ Data to analyze:
                         "reddit_mentions": meta.get("reddit", 0),
                         "discord_mentions": meta.get("discord", 0),
                         "is_ipo": meta.get("is_ipo", False),
-                        "price": quote.get("price") if quote.get("price") else None,
-                        "percent_change": quote.get("percent_change") if quote.get("percent_change") else None,
+                        "price": quote.get("price") if isinstance(quote, dict) else None,
+                        "percent_change": quote.get("percent_change") if isinstance(quote, dict) else None,
                         "ai_thesis": meta.get("ai_thesis"),
                         "why_invest": meta.get("why_invest"),
                         "company_description": meta.get("company_description")
