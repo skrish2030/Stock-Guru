@@ -11,6 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 interface AlertSettings {
   email: string;
   morning_briefing: boolean;
+  afternoon_briefing: boolean;
   day_end_report: boolean;
   trend_alerts: boolean;
 }
@@ -26,6 +27,7 @@ interface PortfolioItem {
 export default function SettingsPage() {
   const [email, setEmail] = useState('');
   const [morning, setMorning] = useState(true);
+  const [afternoon, setAfternoon] = useState(true);
   const [dayEnd, setDayEnd] = useState(true);
   const [trendAlerts, setTrendAlerts] = useState(true);
   
@@ -37,21 +39,77 @@ export default function SettingsPage() {
   const [dbError, setDbError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
+  const [notifGranted, setNotifGranted] = useState(false);
 
-  // Try to load configurations once email is typed or stored
+  // Load configurations and request web notification permissions
   useEffect(() => {
     const savedEmail = localStorage.getItem('alert_email');
     if (savedEmail) {
       setEmail(savedEmail);
       loadConfig(savedEmail);
     }
+
+    if ("Notification" in window) {
+      setNotifGranted(Notification.permission === 'granted');
+    }
   }, []);
+
+  // CROSS-DEVICE BACKGROUND MONITOR: Checks holdings prices every 60s in the browser background
+  useEffect(() => {
+    if (portfolio.length === 0 || !email) return;
+
+    const interval = setInterval(async () => {
+      console.log("[AlertShield] Running cross-device background portfolio price check...");
+      try {
+        const { data: latestTickers } = await supabase
+          .from('alpha_tickers')
+          .select('symbol, price, percent_change');
+
+        if (!latestTickers) return;
+
+        const tickerMap = new Map(latestTickers.map(t => [t.symbol, t]));
+
+        portfolio.forEach(holding => {
+          const live = tickerMap.get(holding.symbol);
+          if (live && live.percent_change <= -3.0 && trendAlerts) {
+            // Trigger browser notification
+            if (Notification.permission === 'granted') {
+              new Notification(`🚨 Risk Alert: ${holding.symbol} is Dropping!`, {
+                body: `${holding.symbol} is trading at $${live.price.toFixed(2)} (${live.percent_change.toFixed(2)}% today). Protect your capital.`,
+                icon: '/favicon.ico'
+              });
+            }
+          }
+        });
+      } catch (e) {
+        console.error("Error in background price check:", e);
+      }
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, [portfolio, email, trendAlerts]);
+
+  const requestNotificationPermission = () => {
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        setNotifGranted(permission === 'granted');
+        if (permission === 'granted') {
+          new Notification("🚨 Risk Shield Active", {
+            body: "You will now receive native browser push notifications on this device for sudden price drops.",
+            icon: '/favicon.ico'
+          });
+        }
+      });
+    } else {
+      alert("This device/browser does not support native push notifications.");
+    }
+  };
 
   const loadConfig = async (emailToLoad: string) => {
     if (!supabaseUrl) return;
     try {
       setLoading(true);
-      // Fetch settings
+      
       const { data: settings, error: sError } = await supabase
         .from('user_alert_settings')
         .select('*')
@@ -65,11 +123,11 @@ export default function SettingsPage() {
         }
       } else if (settings) {
         setMorning(settings.morning_briefing);
+        setAfternoon(settings.afternoon_briefing ?? true);
         setDayEnd(settings.day_end_report);
         setTrendAlerts(settings.trend_alerts);
       }
 
-      // Fetch portfolio
       const { data: portItems } = await supabase
         .from('user_portfolio')
         .select('*')
@@ -100,6 +158,7 @@ export default function SettingsPage() {
         .upsert({
           email,
           morning_briefing: morning,
+          afternoon_briefing: afternoon,
           day_end_report: dayEnd,
           trend_alerts: trendAlerts
         });
@@ -186,16 +245,34 @@ export default function SettingsPage() {
         </div>
       )}
 
+      {/* Cross-Device Background Watcher Banner */}
+      <div className="border rounded-xl p-4 flex flex-col md:flex-row justify-between items-center gap-4" style={{ backgroundColor: '#18181b', borderColor: '#27272a' }}>
+        <div>
+          <h3 className="text-sm font-black text-[#fafafa] uppercase tracking-wider flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5 text-[#8b5cf6]" /> Cross-Device Real-Time Price Watcher
+          </h3>
+          <p className="text-xs text-[#a1a1aa] mt-1 leading-relaxed">
+            When you keep this app open, a background watcher runs silently on this device. If a stock you own drops more than 3%, we will push an instant native notification to your screen.
+          </p>
+        </div>
+        <button 
+          onClick={requestNotificationPermission}
+          className={`px-4 py-2 rounded-lg font-bold text-xs transition-colors whitespace-nowrap ${notifGranted ? 'bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/30 cursor-default' : 'bg-[#8b5cf6] text-white hover:opacity-90'}`}
+        >
+          {notifGranted ? '✓ Device Protection Active' : 'Activate Device Alerts'}
+        </button>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* Left: Email Configurations */}
         <div className="border rounded-xl p-6 shadow-2xl space-y-6 flex flex-col justify-between" style={{ backgroundColor: '#09090b', borderColor: '#27272a' }}>
           <div>
             <h2 className="text-lg font-bold text-[#fafafa] flex items-center gap-2 mb-4">
-              <Mail className="text-[#8b5cf6]" /> Email Notification Settings
+              <Mail className="text-[#8b5cf6]" /> Scheduled Email Subscriptions
             </h2>
             <p className="text-xs text-[#a1a1aa] mb-6 leading-relaxed">
-              We send updates directly to your inbox so you never miss a market move. Provide your email below and configure your subscription alerts.
+              We send up to 3 structured briefings per day serverlessly via GitHub Actions. Save your email address and select your preferences:
             </p>
 
             <form onSubmit={handleSaveSettings} className="space-y-4">
@@ -220,7 +297,17 @@ export default function SettingsPage() {
                     onChange={(e) => setMorning(e.target.checked)}
                     className="w-4 h-4 rounded accent-[#8b5cf6]"
                   />
-                  <span>☀️ Send 6 AM Morning Briefing (Potential stock picks & top headlines)</span>
+                  <span>☀️ 6:00 AM Morning Briefing (Stock Recommendations & news)</span>
+                </label>
+
+                <label className="flex items-center gap-3 cursor-pointer text-sm text-[#d4d4d8]">
+                  <input 
+                    type="checkbox" 
+                    checked={afternoon}
+                    onChange={(e) => setAfternoon(e.target.checked)}
+                    className="w-4 h-4 rounded accent-[#8b5cf6]"
+                  />
+                  <span>🥪 12:30 PM Afternoon Update (Performance review of preferred stocks)</span>
                 </label>
 
                 <label className="flex items-center gap-3 cursor-pointer text-sm text-[#d4d4d8]">
@@ -230,7 +317,7 @@ export default function SettingsPage() {
                     onChange={(e) => setDayEnd(e.target.checked)}
                     className="w-4 h-4 rounded accent-[#8b5cf6]"
                   />
-                  <span>🔔 Send Day-End Performance Report (Recap of your active holdings)</span>
+                  <span>🔔 4:15 PM Day-End Recap (Closing portfolio returns statement)</span>
                 </label>
 
                 <label className="flex items-center gap-3 cursor-pointer text-sm text-[#d4d4d8]">
@@ -240,7 +327,7 @@ export default function SettingsPage() {
                     onChange={(e) => setTrendAlerts(e.target.checked)}
                     className="w-4 h-4 rounded accent-[#8b5cf6]"
                   />
-                  <span>🚨 Send Instant Drop Warnings (Alert me if owned stocks crash &gt; 3%)</span>
+                  <span>🚨 Trigger Volatility Warnings (Send email if stock crashes &gt; 3%)</span>
                 </label>
               </div>
 
@@ -250,7 +337,7 @@ export default function SettingsPage() {
                   className="px-6 py-3 rounded-lg font-bold text-sm bg-gradient-to-r from-[#8b5cf6] to-[#6d28d9] text-white hover:opacity-90 transition-opacity"
                   disabled={loading}
                 >
-                  {loading ? 'Saving...' : 'Save Settings'}
+                  {loading ? 'Saving...' : 'Save Configuration'}
                 </button>
                 {successMsg && <span className="text-xs text-[#10b981] font-semibold">{successMsg}</span>}
               </div>
@@ -262,10 +349,10 @@ export default function SettingsPage() {
         <div className="border rounded-xl p-6 shadow-2xl flex flex-col justify-between" style={{ backgroundColor: '#09090b', borderColor: '#27272a' }}>
           <div>
             <h2 className="text-lg font-bold text-[#fafafa] flex items-center gap-2 mb-4">
-              <Coins className="text-[#8b5cf6]" /> Manage Your Holdings
+              <Coins className="text-[#8b5cf6]" /> Preferred Stock Watchlist
             </h2>
             <p className="text-xs text-[#a1a1aa] mb-6 leading-relaxed">
-              Add the stocks you currently own. The system will watch over these assets and notify you of any sudden drops or end-of-day returns.
+              Add the tickers you own or prefer to watch. The system will watch over these assets, update them in real-time, and run mid-day/closing email reviews for them.
             </p>
 
             <form onSubmit={handleAddHolding} className="grid grid-cols-3 gap-2 items-end mb-6">
@@ -309,7 +396,7 @@ export default function SettingsPage() {
                 className="col-span-3 py-2 rounded-lg font-bold text-xs bg-[#27272a] hover:bg-[#3f3f46] text-[#fafafa] transition-colors flex items-center justify-center gap-1 mt-2"
                 disabled={loading}
               >
-                <Plus className="w-4 h-4" /> Add Asset to Portfolio
+                <Plus className="w-4 h-4" /> Add Asset to watchlist
               </button>
             </form>
 
