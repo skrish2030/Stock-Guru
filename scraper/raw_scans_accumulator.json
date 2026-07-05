@@ -1,0 +1,2078 @@
+{
+  "congress": [
+    {
+      "symbol": "JCTC",
+      "representative": "Ajb Investment Fund Ii, LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$25,871",
+      "date": "2026-07-02 20:32:10"
+    },
+    {
+      "symbol": "SNES",
+      "representative": "Glenbrook Capital Management (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$52,731",
+      "date": "2026-07-02 20:00:15"
+    },
+    {
+      "symbol": "BOLD",
+      "representative": "Tang Kevin (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$268,880",
+      "date": "2026-07-02 19:45:48"
+    },
+    {
+      "symbol": "BGDE",
+      "representative": "Endeavor Blockchain, LLC (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$16,700,000",
+      "date": "2026-07-02 19:04:41"
+    },
+    {
+      "symbol": "SLGL",
+      "representative": "Opaleye Management Inc. (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$123,220",
+      "date": "2026-07-02 18:11:30"
+    },
+    {
+      "symbol": "PSNY",
+      "representative": "Zhang Quan (Joe) (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$30,090",
+      "date": "2026-07-02 18:08:15"
+    },
+    {
+      "symbol": "PSNY",
+      "representative": "Gamboni Francesca Paola Leandra (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$30,010",
+      "date": "2026-07-02 18:04:15"
+    },
+    {
+      "symbol": "HDSN",
+      "representative": "Hartree Partners, LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$4,477,207",
+      "date": "2026-07-02 18:00:57"
+    },
+    {
+      "symbol": "NYC",
+      "representative": "Schorsch Nicholas S (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$76,240",
+      "date": "2026-07-02 17:01:17"
+    },
+    {
+      "symbol": "HTO",
+      "representative": "Atlas Infrastructure Partners (Uk) Ltd. (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$129,535",
+      "date": "2026-07-02 16:58:31"
+    },
+    {
+      "symbol": "MSGM",
+      "representative": "Red Oak Partners, LLC (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$109,672",
+      "date": "2026-07-02 16:46:16"
+    },
+    {
+      "symbol": "WBX",
+      "representative": "Mera Francisco Jose Riberas (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$1,364,504",
+      "date": "2026-07-02 16:27:39"
+    },
+    {
+      "symbol": "WBX",
+      "representative": "Aguera Pedro Alonso (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$1,364,504",
+      "date": "2026-07-02 16:24:41"
+    },
+    {
+      "symbol": "WBX",
+      "representative": "Escorsa Enric Asuncion (CEO)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$886,929",
+      "date": "2026-07-02 16:20:48"
+    },
+    {
+      "symbol": "WBX",
+      "representative": "Richer Marc Sabe (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$1,364,504",
+      "date": "2026-07-02 16:20:36"
+    },
+    {
+      "symbol": "LIME",
+      "representative": "Uber Technologies, Inc (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$20,000,000",
+      "date": "2026-07-02 16:15:17"
+    },
+    {
+      "symbol": "BBD",
+      "representative": "Bueno Julio Cesar (CLO, Exec Officer)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$1,998,983",
+      "date": "2026-07-02 15:38:32"
+    },
+    {
+      "symbol": "PSBD",
+      "representative": "Bicknell Martin C (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$844,800",
+      "date": "2026-07-02 15:08:12"
+    },
+    {
+      "symbol": "CREX",
+      "representative": "Mills Richard C (CEO)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$700,000",
+      "date": "2026-07-02 14:29:14"
+    },
+    {
+      "symbol": "CREX",
+      "representative": "Koshewa Tamra L (CFO)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$99,999",
+      "date": "2026-07-02 14:28:47"
+    },
+    {
+      "symbol": "WHLR",
+      "representative": "Hrt Financial LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$51,252",
+      "date": "2026-07-02 14:13:07"
+    },
+    {
+      "symbol": "GDV",
+      "representative": "Melarkey Michael J (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$57,040",
+      "date": "2026-07-02 14:11:59"
+    },
+    {
+      "symbol": "RDGT",
+      "representative": "Hrt Financial LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$62,323",
+      "date": "2026-07-02 14:01:19"
+    },
+    {
+      "symbol": "KUST",
+      "representative": "Hrt Financial LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$28,628",
+      "date": "2026-07-02 13:53:32"
+    },
+    {
+      "symbol": "BNR",
+      "representative": "Han Yusheng (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$6,182,172",
+      "date": "2026-07-02 08:30:48"
+    },
+    {
+      "symbol": "JCTC",
+      "representative": "Bradley Melinda Hodges (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$806,224",
+      "date": "2026-07-01 20:27:30"
+    },
+    {
+      "symbol": "FTH",
+      "representative": "Stephenson Brian C (CFO)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$326,127",
+      "date": "2026-07-01 20:09:53"
+    },
+    {
+      "symbol": "RH",
+      "representative": "Alberini Carlos (Dir)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$1,832,322",
+      "date": "2026-07-01 20:00:05"
+    },
+    {
+      "symbol": "JCTC",
+      "representative": "Bradley Melinda Hodges (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$42,290",
+      "date": "2026-07-01 19:22:27"
+    },
+    {
+      "symbol": "SHPH",
+      "representative": "Hrt Financial LP (10%)",
+      "transactionType": "Corporate Purchase \ud83d\udfe2",
+      "amount": "+$110,694",
+      "date": "2026-07-01 19:17:00"
+    }
+  ],
+  "youtube": [
+    {
+      "title": "The Next 25 Days Changes Everything for Stocks",
+      "channel": "Let's Talk Money! with Joseph Hogue, CFA",
+      "video_tickers": [
+        "CFA",
+        "CNBC",
+        "NKE",
+        "STOP"
+      ],
+      "comment_tickers": [
+        "HYPE",
+        "ICO",
+        "SMCI",
+        "SOUND",
+        "SPCX"
+      ],
+      "query": "stocks to buy",
+      "videoId": "Hw9fId8gpf8",
+      "published_time": "2026-07-05"
+    },
+    {
+      "title": "5 Stocks To BUY HEAVY For July 2026",
+      "channel": "ZipTrader",
+      "video_tickers": [
+        "AGREE",
+        "HEAVY",
+        "INTRO",
+        "JULY",
+        "LLC",
+        "RISKY",
+        "SALE",
+        "THE",
+        "USING"
+      ],
+      "comment_tickers": [
+        "CURE",
+        "DV",
+        "FLNC",
+        "IBRX",
+        "MBLY",
+        "META",
+        "NNE",
+        "PLTR",
+        "RDW",
+        "RELY"
+      ],
+      "query": "stocks to buy",
+      "videoId": "At0RAgG_Fnc",
+      "published_time": "2026-07-03"
+    },
+    {
+      "title": "8 Stocks You'll Wish You Bought Before Q3. (And What to Cash Out of Now)\ue056\ue03b\ue0c1\ue0fb\ue0f9\ue11d",
+      "channel": "MarketBeat",
+      "video_tickers": [
+        "SMS"
+      ],
+      "comment_tickers": [
+        "ACHR",
+        "AMD",
+        "EVTL",
+        "IMO",
+        "JOBY",
+        "NEGG",
+        "NVTS",
+        "SK",
+        "SPY",
+        "UK",
+        "YMMV"
+      ],
+      "query": "stocks to buy",
+      "videoId": "9Kn_rYDyxjI",
+      "published_time": "2026-07-03"
+    },
+    {
+      "title": "Top 5 Stocks to Buy HEAVY in July",
+      "channel": "We Profit with Stock Curry",
+      "video_tickers": [
+        "ADBE",
+        "ARM",
+        "CURRY",
+        "FSLR",
+        "HEAVY",
+        "LLC",
+        "MSTR",
+        "MU",
+        "PYPL",
+        "SMCI"
+      ],
+      "comment_tickers": [
+        "ABR",
+        "AVGO",
+        "BBAI",
+        "CRWD",
+        "DOCN",
+        "DRAM",
+        "ELF",
+        "GLW",
+        "IREN",
+        "MSFT",
+        "MSTR",
+        "MU",
+        "NBIS",
+        "PE",
+        "PYPL",
+        "QCOM",
+        "SMCI",
+        "VPG"
+      ],
+      "query": "stocks to buy",
+      "videoId": "OYkbm29znMM",
+      "published_time": "2026-07-04"
+    },
+    {
+      "title": "3 Stocks You'll Wish You Bought in July 2026",
+      "channel": "Ale's World of Stocks",
+      "video_tickers": [],
+      "comment_tickers": [
+        "ACN",
+        "BN",
+        "MAA",
+        "NNN",
+        "PLUS",
+        "WTF",
+        "XD"
+      ],
+      "query": "stocks to buy",
+      "videoId": "iKtd0MFxhdc",
+      "published_time": "2026-07-04"
+    },
+    {
+      "title": "\u201cTop 5 Trending Stocks Right Now \ud83d\udcc8 (Best vs Risky Picks!)\u201d",
+      "channel": "AF ROKIB",
+      "video_tickers": [
+        "BETA",
+        "RISK",
+        "SPCX"
+      ],
+      "comment_tickers": [],
+      "query": "trending stocks",
+      "videoId": "QTrKXOKMFCg",
+      "published_time": "2026-06-08"
+    },
+    {
+      "title": "6 of the BEST Stocks to BUY in July 2026",
+      "channel": "Mark Roussin, CPA",
+      "video_tickers": [
+        "JOIN",
+        "TIKR"
+      ],
+      "comment_tickers": [
+        "ARK",
+        "ARKK",
+        "AVGO",
+        "BKNG",
+        "CNEQ",
+        "FSELX",
+        "FULL",
+        "GAN",
+        "HOOD",
+        "KOSPI",
+        "MSFT",
+        "NEE",
+        "NU",
+        "NVDA",
+        "SOFI",
+        "TIKR",
+        "TSLA",
+        "ZS"
+      ],
+      "query": "trending stocks",
+      "videoId": "QQ-awJ_8QQw",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "MM's See $15 Rezolve AI by 2028 \ud83d\udd25 NEXT Big Rezolve Catalyst \u2502 Rezolve Stock Analysis",
+      "channel": "Trending Stocks",
+      "video_tickers": [
+        "IBKR",
+        "RZLV",
+        "TOP"
+      ],
+      "comment_tickers": [
+        "ADR",
+        "CTM",
+        "GL",
+        "PR",
+        "RZLV"
+      ],
+      "query": "trending stocks",
+      "videoId": "aic76QNrlQg",
+      "published_time": "2026-03-06"
+    },
+    {
+      "title": "SoFi Q4 Earnings - Good, Bad, & the UGLY \u26a0\ufe0f NEW $38 BULLISH Analyst Rating \u2502 SoFi Stock Analys",
+      "channel": "Trending Stocks",
+      "video_tickers": [
+        "APY",
+        "IBKR",
+        "TOP",
+        "UGLY"
+      ],
+      "comment_tickers": [
+        "CAGR",
+        "CC",
+        "EPS",
+        "LEAST",
+        "SOFI",
+        "TSLA",
+        "TWICE"
+      ],
+      "query": "trending stocks",
+      "videoId": "OkPCzwymqjI",
+      "published_time": "2026-01-30"
+    },
+    {
+      "title": "Options Trading for Beginners:  Total Guide with Examples!",
+      "channel": "BWB - Business With Brian",
+      "video_tickers": [
+        "BWB",
+        "LET",
+        "ODD"
+      ],
+      "comment_tickers": [],
+      "query": "trading options",
+      "videoId": "hcalZ_sRtRY",
+      "published_time": "2024-12-21"
+    },
+    {
+      "title": "Options Trading for Beginners: Calls, Puts, and Smart Strategies | Wallstreet Trapper",
+      "channel": "Wallstreet Trapper",
+      "video_tickers": [
+        "MEDIA",
+        "VS"
+      ],
+      "comment_tickers": [
+        "BG",
+        "OG",
+        "THANK",
+        "YT"
+      ],
+      "query": "trading options",
+      "videoId": "C3A3aQdlh1I",
+      "published_time": "2025-03-09"
+    },
+    {
+      "title": "Options Trading Explained - COMPLETE BEGINNERS GUIDE (Part 1)",
+      "channel": "Sky View Trading",
+      "video_tickers": [
+        "GUIDE"
+      ],
+      "comment_tickers": [
+        "BS",
+        "DUOL",
+        "GUIDE",
+        "RISK",
+        "SPGI",
+        "THE",
+        "WTF"
+      ],
+      "query": "trading options",
+      "videoId": "4HMm6mBvGKE",
+      "published_time": "2020-06-23"
+    },
+    {
+      "title": "How I Made $48,000 Last Month Trading Options Using Support and Resistance",
+      "channel": "Sierra Aaliyah",
+      "video_tickers": [
+        "ID",
+        "MU"
+      ],
+      "comment_tickers": [
+        "EMA",
+        "TIRED",
+        "US",
+        "USA",
+        "VIP",
+        "VWAP"
+      ],
+      "query": "trading options",
+      "videoId": "FVW_i-rSyNM",
+      "published_time": "2026-05-19"
+    },
+    {
+      "title": "Options Trading For Beginners | Step By Step",
+      "channel": "Andrei Jikh",
+      "video_tickers": [
+        "BASIC",
+        "IRA",
+        "NV",
+        "PO",
+        "UC",
+        "WHAT"
+      ],
+      "comment_tickers": [
+        "DUDE",
+        "LOL",
+        "NICE",
+        "RULES",
+        "THIS"
+      ],
+      "query": "trading options",
+      "videoId": "eCEHzyCTDd8",
+      "published_time": "2021-08-06"
+    },
+    {
+      "title": "Tom Lee: \"The Stock Market Crash is Still Coming\"....",
+      "channel": "The Creative Investor",
+      "video_tickers": [
+        "NEVER",
+        "RISK",
+        "SAID",
+        "THESE"
+      ],
+      "comment_tickers": [
+        "BMNR",
+        "CPU",
+        "ROI",
+        "US"
+      ],
+      "query": "stock market news",
+      "videoId": "g9iVcY_011A",
+      "published_time": "2026-07-03"
+    },
+    {
+      "title": "ALERT: THIS OVERSOLD STOCK IS AT 11 YEAR LOWS!",
+      "channel": "Ricky Gutierrez",
+      "video_tickers": [
+        "EARN",
+        "LOWS",
+        "LPP",
+        "SALE",
+        "SPCX",
+        "THIS"
+      ],
+      "comment_tickers": [
+        "CLD",
+        "DVLT",
+        "ICO",
+        "PYPL",
+        "THE",
+        "TX",
+        "WAY",
+        "WHAT"
+      ],
+      "query": "stock market news",
+      "videoId": "3Cqo5bovbxU",
+      "published_time": "2026-07-04"
+    },
+    {
+      "title": "Jobs report SHOCKS expectations but markets SURGE",
+      "channel": "Fox Business",
+      "video_tickers": [
+        "FBN",
+        "FOX",
+        "SURGE"
+      ],
+      "comment_tickers": [
+        "BIBLE",
+        "BLS",
+        "BS",
+        "CFP",
+        "CLEAN",
+        "GOD",
+        "GRADE",
+        "JOBS",
+        "KEEP",
+        "LETS",
+        "PEACE",
+        "RAM",
+        "SOMES",
+        "SORRY",
+        "THE",
+        "TRUMP",
+        "US",
+        "YES"
+      ],
+      "query": "stock market news",
+      "videoId": "tBXy_0G70-0",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "Stocks Give up Jobs Report Gains | Closing Bell",
+      "channel": "Bloomberg Television",
+      "video_tickers": [],
+      "comment_tickers": [
+        "FUN",
+        "USA"
+      ],
+      "query": "stock market news",
+      "videoId": "xxcU2rqUhuw",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "Canada's Exit Tax Explained",
+      "channel": "The Plain Bagel",
+      "video_tickers": [
+        "LCGE",
+        "USA",
+        "WDS"
+      ],
+      "comment_tickers": [
+        "EU",
+        "FICA",
+        "FIFA",
+        "LLC",
+        "RRSP",
+        "SDI",
+        "TFSA",
+        "US",
+        "USA"
+      ],
+      "query": "Channel Focus: The Plain Bagel",
+      "videoId": "imNcJrD1QpM",
+      "published_time": "2026-06-26"
+    },
+    {
+      "title": "Four Hidden Costs of Zero-Commission Brokers",
+      "channel": "The Plain Bagel",
+      "video_tickers": [],
+      "comment_tickers": [
+        "AMC",
+        "EU",
+        "GME",
+        "RH",
+        "TV",
+        "WS"
+      ],
+      "query": "Channel Focus: The Plain Bagel",
+      "videoId": "Hxo-6XEEOMg",
+      "published_time": "2021-07-16"
+    },
+    {
+      "title": "The SpaceX IPO Is Wild",
+      "channel": "The Plain Bagel",
+      "video_tickers": [
+        "WDS"
+      ],
+      "comment_tickers": [
+        "FAR",
+        "III",
+        "POP",
+        "POV",
+        "THE"
+      ],
+      "query": "Channel Focus: The Plain Bagel",
+      "videoId": "jNAAG3Ma5K8",
+      "published_time": "2026-06-12"
+    },
+    {
+      "title": "Value Investing for 2H 2026! The Opportunities!",
+      "channel": "Value Investing with Sven Carlin, Ph.D.",
+      "video_tickers": [
+        "ASSET"
+      ],
+      "comment_tickers": [
+        "ACN",
+        "ACOMO",
+        "ADBE",
+        "ADM",
+        "BRK",
+        "CAPE",
+        "FISV",
+        "PE",
+        "PS",
+        "SPY",
+        "STLA",
+        "US"
+      ],
+      "query": "Channel Focus: Sven Carlin",
+      "videoId": "hGuymAEAjRo",
+      "published_time": "2026-06-28"
+    },
+    {
+      "title": "Do I Need International Investing For Value?",
+      "channel": "Value Investing with Sven Carlin, Ph.D.",
+      "video_tickers": [
+        "ASSET"
+      ],
+      "comment_tickers": [
+        "AB",
+        "ACN",
+        "IMO",
+        "MSCI",
+        "US",
+        "USA"
+      ],
+      "query": "Channel Focus: Sven Carlin",
+      "videoId": "KwNUYNGKVBs",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "Best Strategy For Retail Investors - Diversify & Wait...",
+      "channel": "Value Investing with Sven Carlin, Ph.D.",
+      "video_tickers": [
+        "ASSET"
+      ],
+      "comment_tickers": [
+        "AVUV",
+        "BRK",
+        "FOMO",
+        "GDX",
+        "GDXJ",
+        "GFC",
+        "IF",
+        "US",
+        "USA",
+        "VOO",
+        "VTI"
+      ],
+      "query": "Channel Focus: Sven Carlin",
+      "videoId": "KwyvGTKF1QE",
+      "published_time": "2026-05-30"
+    },
+    {
+      "title": "Right Now, This is Your Best Opportunity to Become A Stock Market Millionaire",
+      "channel": "Everything Money",
+      "video_tickers": [
+        "EM",
+        "FULL",
+        "READ",
+        "THE"
+      ],
+      "comment_tickers": [
+        "DCA",
+        "EM",
+        "LOL",
+        "RWA",
+        "SCHD",
+        "STEX",
+        "SURE",
+        "VOO"
+      ],
+      "query": "Channel Focus: Everything Money",
+      "videoId": "dg2FSI3GFFk",
+      "published_time": "2026-06-29"
+    },
+    {
+      "title": "Nike Earnings Are In, Market Soars, and Bitcoin Falls Under $60K",
+      "channel": "Everything Money Plus",
+      "video_tickers": [
+        "FULL",
+        "READ",
+        "THE"
+      ],
+      "comment_tickers": [
+        "BC",
+        "DARE",
+        "IEEPA",
+        "ISI",
+        "LAC",
+        "NKE",
+        "OK",
+        "PLTR"
+      ],
+      "query": "Channel Focus: Everything Money",
+      "videoId": "FCkxAKTbC-4",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "Every Stock Michael Burry is Buying Right Now! (9 New Buys)",
+      "channel": "Everything Money",
+      "video_tickers": [
+        "EM",
+        "FULL",
+        "PDF",
+        "READ",
+        "THE"
+      ],
+      "comment_tickers": [
+        "EM",
+        "KXIAY",
+        "LULU",
+        "MU",
+        "NZ",
+        "PDF",
+        "UK",
+        "US",
+        "ZIP"
+      ],
+      "query": "Channel Focus: Everything Money",
+      "videoId": "nOc7IcHcg-c",
+      "published_time": "2026-06-25"
+    },
+    {
+      "title": "6 Stocks To Buy In An Overvalued Market",
+      "channel": "Joseph Carlson",
+      "video_tickers": [],
+      "comment_tickers": [
+        "ADBE",
+        "CAPEX",
+        "CRM",
+        "EU",
+        "IMO",
+        "META",
+        "PE",
+        "TAM",
+        "TTD",
+        "USDC"
+      ],
+      "query": "Channel Focus: Joseph Carlson",
+      "videoId": "--P9ha_OTJA",
+      "published_time": "2025-11-05"
+    },
+    {
+      "title": "My Biggest Predictions This Week",
+      "channel": "Joseph Carlson After Hours",
+      "video_tickers": [
+        "ASML",
+        "MEDIA"
+      ],
+      "comment_tickers": [
+        "ASML",
+        "TSLA"
+      ],
+      "query": "Channel Focus: Joseph Carlson",
+      "videoId": "kX0K9o8YZBA",
+      "published_time": "2026-01-26"
+    },
+    {
+      "title": "Why I Love Stocks",
+      "channel": "Joseph Carlson After Hours",
+      "video_tickers": [
+        "COM",
+        "MEDIA"
+      ],
+      "comment_tickers": [
+        "FCF",
+        "NFLX",
+        "PEP",
+        "THE"
+      ],
+      "query": "Channel Focus: Joseph Carlson",
+      "videoId": "4lp8_MstX6I",
+      "published_time": "2024-02-12"
+    },
+    {
+      "title": "The Truth About Investing at All-Time Highs",
+      "channel": "Ben Felix",
+      "video_tickers": [],
+      "comment_tickers": [
+        "CAPEX",
+        "DIY",
+        "NASA",
+        "PE",
+        "USA"
+      ],
+      "query": "Channel Focus: Ben Felix",
+      "videoId": "WEClhtPD5Ko",
+      "published_time": "2026-06-28"
+    },
+    {
+      "title": "Stock Expert: Becoming Rich Is Simple, But You Won\u2019t Do It!",
+      "channel": "The Diary Of A CEO and Ben Felix",
+      "video_tickers": [
+        "DIARY",
+        "DOAC",
+        "PWL"
+      ],
+      "comment_tickers": [
+        "CIA",
+        "CJ",
+        "CPP",
+        "DAMB",
+        "DB",
+        "EVIL",
+        "FIX",
+        "FTSE",
+        "HOA",
+        "HOME",
+        "IM",
+        "LIED",
+        "LIES",
+        "LIKR",
+        "LYING",
+        "MAN",
+        "OAS",
+        "PAID",
+        "PERMA",
+        "PPL",
+        "SHIT",
+        "START",
+        "STOP",
+        "THE",
+        "UK",
+        "VS",
+        "WASTE",
+        "YES"
+      ],
+      "query": "Channel Focus: Ben Felix",
+      "videoId": "jLFG_FZKbks",
+      "published_time": "2026-04-30"
+    },
+    {
+      "title": "Inflation is Rising Again \u2014 Here's What the Fed Will Do",
+      "channel": "ClearValue Tax",
+      "video_tickers": [
+        "FDIC"
+      ],
+      "comment_tickers": [
+        "COLA",
+        "RIP",
+        "THE"
+      ],
+      "query": "Channel Focus: ClearValue Tax",
+      "videoId": "Jx9jpLmiDQY",
+      "published_time": "2026-06-26"
+    },
+    {
+      "title": "US Debt Crisis: Interest Payments Are Becoming a Major Problem",
+      "channel": "ClearValue Tax",
+      "video_tickers": [
+        "FDIC",
+        "US"
+      ],
+      "comment_tickers": [
+        "CBDC",
+        "DOGE",
+        "US",
+        "USA"
+      ],
+      "query": "Channel Focus: ClearValue Tax",
+      "videoId": "LhCI3Uc66lI",
+      "published_time": "2026-06-24"
+    },
+    {
+      "title": "The Fed Quietly Abandoned the 2% Inflation Target",
+      "channel": "ClearValue Tax",
+      "video_tickers": [
+        "FDIC"
+      ],
+      "comment_tickers": [
+        "FEEL",
+        "GLD",
+        "LOL",
+        "PCE",
+        "US"
+      ],
+      "query": "Channel Focus: ClearValue Tax",
+      "videoId": "CvQbW19GxWQ",
+      "published_time": "2026-06-18"
+    },
+    {
+      "title": "Nasdaq, Leaders Hit Amid Chip Sell-Off: Argenx, eBay, TTM Tech In Focus | Stock Market Today",
+      "channel": "Investor's Business Daily",
+      "video_tickers": [
+        "IBD",
+        "LLC",
+        "TTM"
+      ],
+      "comment_tickers": [],
+      "query": "Channel Focus: Investor's Business Daily",
+      "videoId": "RjvKabVa9Y4",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "Market Extends Bounce; GE Vernova, Marvell Technology, SpaceX In Focus | Stock Market Today",
+      "channel": "Investor's Business Daily",
+      "video_tickers": [
+        "GE",
+        "IBD",
+        "LLC"
+      ],
+      "comment_tickers": [
+        "GE",
+        "MRVL"
+      ],
+      "query": "Channel Focus: Investor's Business Daily",
+      "videoId": "VZdn0C5qm0w",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "Why The Upgraded MarketSurge Is Your New Time-Saving Superpower | Investing with IBD",
+      "channel": "Investor's Business Daily",
+      "video_tickers": [
+        "IBD",
+        "PM"
+      ],
+      "comment_tickers": [
+        "ATR",
+        "EPS",
+        "IBD",
+        "MS",
+        "ROKU",
+        "RS",
+        "VIAV"
+      ],
+      "query": "Channel Focus: Investor's Business Daily",
+      "videoId": "j7TUQxLbBlE",
+      "published_time": "2026-04-08"
+    },
+    {
+      "title": "Netflix (NFLX STOCK): ON SALE?",
+      "channel": "UNRIVALED INVESTING",
+      "video_tickers": [
+        "CHAT",
+        "FLASH",
+        "NFLX",
+        "SALE",
+        "URL",
+        "WHICH"
+      ],
+      "comment_tickers": [
+        "CD",
+        "CDN",
+        "CRM",
+        "EMA",
+        "NFLX",
+        "PE",
+        "RKLB",
+        "VWAP",
+        "WBD"
+      ],
+      "query": "Channel Focus: Unrivaled Investing",
+      "videoId": "PUSuAJ5z2aA",
+      "published_time": "2026-06-26"
+    },
+    {
+      "title": "Fiserv (FISV): TIME TO BUY?",
+      "channel": "UNRIVALED INVESTING",
+      "video_tickers": [
+        "CHAT",
+        "FISV",
+        "FLASH",
+        "URL",
+        "WHICH"
+      ],
+      "comment_tickers": [
+        "ADBE",
+        "DUOL",
+        "EV",
+        "FCF",
+        "FISV",
+        "PAL",
+        "PAY",
+        "SAP",
+        "SHIFT",
+        "TTD",
+        "VFF"
+      ],
+      "query": "Channel Focus: Unrivaled Investing",
+      "videoId": "tNB5-Bo47Zo",
+      "published_time": "2026-06-22"
+    },
+    {
+      "title": "Oracle (ORCL Stock): Looks Cheap, One Big Catch...",
+      "channel": "UNRIVALED INVESTING",
+      "video_tickers": [
+        "CHAT",
+        "FLASH",
+        "ORCL",
+        "URL",
+        "WHICH"
+      ],
+      "comment_tickers": [
+        "EPS",
+        "FNMA",
+        "MSFT",
+        "NVDA",
+        "OAI",
+        "ORCL",
+        "PE",
+        "SEZL",
+        "TSM"
+      ],
+      "query": "Channel Focus: Unrivaled Investing",
+      "videoId": "BD59ubZ9AV8",
+      "published_time": "2026-06-11"
+    },
+    {
+      "title": "Top 3 Value Stocks for Long Term Investors",
+      "channel": "Learn to Invest - Investors Grow",
+      "video_tickers": [],
+      "comment_tickers": [
+        "AMZN",
+        "CALX",
+        "CBOE",
+        "CMG",
+        "CNSWF",
+        "MDT",
+        "SKY",
+        "SPGI",
+        "SYK",
+        "ZBH"
+      ],
+      "query": "Channel Focus: Learn to Invest",
+      "videoId": "eujZoa-S55Q",
+      "published_time": "2026-07-05"
+    },
+    {
+      "title": "Why $170,000 Is The New \u2018Poor\u2019",
+      "channel": "Graham Stephan",
+      "video_tickers": [
+        "OFFER",
+        "START"
+      ],
+      "comment_tickers": [
+        "HOMES",
+        "IG",
+        "LA"
+      ],
+      "query": "Channel Focus: Graham Stephan",
+      "videoId": "pDxCC5-C9Tg",
+      "published_time": "2026-04-20"
+    },
+    {
+      "title": "BREAKING: The FED Cancels ALL Rate Cuts - Market Selloff Has Begun!",
+      "channel": "Graham Stephan",
+      "video_tickers": [
+        "BACK",
+        "CASE",
+        "ERA",
+        "FOCUS",
+        "LOCAL",
+        "OIL",
+        "SAID",
+        "START",
+        "THE",
+        "TOUGH",
+        "WARSH",
+        "WHAT"
+      ],
+      "comment_tickers": [
+        "BTW",
+        "FILM",
+        "INDIA",
+        "REI",
+        "STOP",
+        "VELS"
+      ],
+      "query": "Channel Focus: Graham Stephan",
+      "videoId": "zJZTJAMUkP0",
+      "published_time": "2026-06-17"
+    },
+    {
+      "title": "Why EVERYTHING Changes After You Save $10K",
+      "channel": "Graham Stephan",
+      "video_tickers": [
+        "CODE",
+        "EMAIL",
+        "LOT",
+        "NEVER",
+        "RECAP",
+        "THIS"
+      ],
+      "comment_tickers": [
+        "AM"
+      ],
+      "query": "Channel Focus: Graham Stephan",
+      "videoId": "ZAPhN6o3e3o",
+      "published_time": "2025-04-28"
+    },
+    {
+      "title": "How I\u2019m Preparing For The \u201cSupercycle\u201d",
+      "channel": "Andrei Jikh",
+      "video_tickers": [
+        "IRA"
+      ],
+      "comment_tickers": [
+        "BS",
+        "THAT",
+        "US",
+        "WRONG"
+      ],
+      "query": "Channel Focus: Andrei Jikh",
+      "videoId": "HIBozcOlQPY",
+      "published_time": "2026-06-15"
+    },
+    {
+      "title": "Your Money Is About To Be Worth A Lot Less",
+      "channel": "Andrei Jikh",
+      "video_tickers": [
+        "IRA"
+      ],
+      "comment_tickers": [
+        "PCE",
+        "TBH",
+        "USA",
+        "WRONG"
+      ],
+      "query": "Channel Focus: Andrei Jikh",
+      "videoId": "nHy5u06we_s",
+      "published_time": "2026-06-22"
+    },
+    {
+      "title": "Who Really Owns America (It's Not Who You Think)",
+      "channel": "Andrei Jikh",
+      "video_tickers": [
+        "HMKP",
+        "IRA",
+        "NV",
+        "PO"
+      ],
+      "comment_tickers": [
+        "BAY",
+        "CRAP",
+        "GAAP",
+        "GREED",
+        "HOLY",
+        "JP",
+        "KEEP",
+        "LAW",
+        "TAX",
+        "THIS",
+        "US",
+        "USA",
+        "VOTE",
+        "WASP"
+      ],
+      "query": "Channel Focus: Andrei Jikh",
+      "videoId": "uOG3MiFax7E",
+      "published_time": "2025-07-22"
+    },
+    {
+      "title": "Day Trading Watch List for MONDAY",
+      "channel": "Ross Cameron - Warrior Trading",
+      "video_tickers": [
+        "COPY"
+      ],
+      "comment_tickers": [
+        "CLRO",
+        "FXHO",
+        "HYPE",
+        "ICO",
+        "SPCX",
+        "YRD",
+        "ZCMD"
+      ],
+      "query": "Channel Focus: Warrior Trading",
+      "videoId": "I0aTxFJWAD0",
+      "published_time": "2026-07-05"
+    },
+    {
+      "title": "One Last Trade Before The Long Weekend...",
+      "channel": "Ross Cameron - Warrior Trading",
+      "video_tickers": [
+        "COPY"
+      ],
+      "comment_tickers": [
+        "AM",
+        "CLRO",
+        "HYPE",
+        "ICO",
+        "MES",
+        "OG",
+        "SPCX",
+        "US"
+      ],
+      "query": "Channel Focus: Warrior Trading",
+      "videoId": "3dXvK41dpd4",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "The ONLY Technical Analysis Guide You'll Ever Need! (Beginner to Advanced)",
+      "channel": "Ross Cameron - Warrior Trading",
+      "video_tickers": [
+        "COPY",
+        "PDF"
+      ],
+      "comment_tickers": [
+        "IQ",
+        "MA",
+        "SMA",
+        "TMM",
+        "YT"
+      ],
+      "query": "Channel Focus: Warrior Trading",
+      "videoId": "BUCPPCXOHbs",
+      "published_time": "2025-01-09"
+    },
+    {
+      "title": "If I Had ONLY 5 Years to Become a Millionaire, Here's What I'd Do",
+      "channel": "Marko - WhiteBoard Finance",
+      "video_tickers": [
+        "JM",
+        "TOOLS"
+      ],
+      "comment_tickers": [
+        "JM",
+        "PP",
+        "TIA",
+        "TOOLS",
+        "UK"
+      ],
+      "query": "Channel Focus: WhiteBoard Finance",
+      "videoId": "AoUIyIeH9ow",
+      "published_time": "2026-06-18"
+    },
+    {
+      "title": "10 Financial Goals to Achieve Before You\u2019re 30",
+      "channel": "Marko - WhiteBoard Finance",
+      "video_tickers": [
+        "BLOG",
+        "CHECK",
+        "HOME",
+        "IG",
+        "WBF"
+      ],
+      "comment_tickers": [
+        "ADDED",
+        "APP",
+        "CHINA",
+        "CSN",
+        "LIFE",
+        "PUT",
+        "THANK",
+        "THAT",
+        "THE",
+        "TONES",
+        "USA",
+        "WHAT",
+        "WHO",
+        "YUAN"
+      ],
+      "query": "Channel Focus: WhiteBoard Finance",
+      "videoId": "5NqsuyuhsVA",
+      "published_time": "2022-04-14"
+    },
+    {
+      "title": "How to Pay Off Debt Forever in 8 Simple Steps",
+      "channel": "Marko - WhiteBoard Finance",
+      "video_tickers": [
+        "TOOLS"
+      ],
+      "comment_tickers": [
+        "UK"
+      ],
+      "query": "Channel Focus: WhiteBoard Finance",
+      "videoId": "hs5GQPVIBl8",
+      "published_time": "2026-06-10"
+    },
+    {
+      "title": "Investing for Beginners - How I Make Millions from Stocks (Full Guide)",
+      "channel": "Mark Tilbury",
+      "video_tickers": [
+        "TOUCH"
+      ],
+      "comment_tickers": [
+        "ISA",
+        "NY",
+        "THANK",
+        "XRP"
+      ],
+      "query": "Channel Focus: Mark Tilbury",
+      "videoId": "8Ij7A1VCB7I",
+      "published_time": "2023-12-29"
+    },
+    {
+      "title": "Millionaire Explains: How to Invest for Beginners in 2026",
+      "channel": "Mark Tilbury",
+      "video_tickers": [
+        "TOUCH"
+      ],
+      "comment_tickers": [
+        "ISA"
+      ],
+      "query": "Channel Focus: Mark Tilbury",
+      "videoId": "Jd8Xv1v51vU",
+      "published_time": "2024-06-27"
+    },
+    {
+      "title": "How to Invest As a Teen With $0",
+      "channel": "Mark Tilbury",
+      "video_tickers": [
+        "AGE",
+        "TOUCH"
+      ],
+      "comment_tickers": [
+        "ISA"
+      ],
+      "query": "Channel Focus: Mark Tilbury",
+      "videoId": "-C_5hzJCHaY",
+      "published_time": "2024-07-11"
+    },
+    {
+      "title": "Did you miss the BTC bottom? +\ud83d\udea8 Urgent SPY technicals for this Week",
+      "channel": "Stocks with Josh",
+      "video_tickers": [
+        "JOIN",
+        "LOSE",
+        "SPY"
+      ],
+      "comment_tickers": [
+        "SPY"
+      ],
+      "query": "Channel Focus: Stocks with Josh",
+      "videoId": "FN1fkrNXaYQ",
+      "published_time": "2026-07-04"
+    },
+    {
+      "title": "Don't Miss this Move \ud83d\ude80 Next Week",
+      "channel": "Stocks with Josh",
+      "video_tickers": [
+        "JOIN",
+        "LOSE"
+      ],
+      "comment_tickers": [
+        "DRAM",
+        "JOIN",
+        "META",
+        "MU",
+        "MUU",
+        "SPY"
+      ],
+      "query": "Channel Focus: Stocks with Josh",
+      "videoId": "lwbLlJFFuDs",
+      "published_time": "2026-07-03"
+    },
+    {
+      "title": "A 10% Flush\u2026 Opportunity in July",
+      "channel": "Stocks with Josh",
+      "video_tickers": [
+        "JOIN",
+        "LOSE"
+      ],
+      "comment_tickers": [
+        "HOOD",
+        "INTC",
+        "IREN",
+        "JOIN",
+        "ORCL",
+        "POET",
+        "QQQI",
+        "SNDK",
+        "SOXL",
+        "TSLA",
+        "TSLL",
+        "WMT"
+      ],
+      "query": "Channel Focus: Stocks with Josh",
+      "videoId": "8VNrmh2o6Ko",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "ALERT: THIS STOCK JUST CRASHED 10% AFTER HOURS",
+      "channel": "Ricky Gutierrez",
+      "video_tickers": [
+        "EARN",
+        "HOURS",
+        "LPP",
+        "SPCX",
+        "THIS"
+      ],
+      "comment_tickers": [
+        "HYPE",
+        "ICO",
+        "OG",
+        "US",
+        "XRP"
+      ],
+      "query": "Channel Focus: Ricky Gutierrez",
+      "videoId": "Ah98SBQ5ouA",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "Warning: Stock Market Is Testing A Critical Support!",
+      "channel": "Ricky Gutierrez",
+      "video_tickers": [
+        "EARN",
+        "LPP",
+        "SPCX"
+      ],
+      "comment_tickers": [
+        "AERO",
+        "HYPE",
+        "ICO",
+        "OG",
+        "ONDO",
+        "SPCX"
+      ],
+      "query": "Channel Focus: Ricky Gutierrez",
+      "videoId": "zXmyetdRWfY",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "Warning: You Might Want To Sell Soon...",
+      "channel": "Ricky Gutierrez",
+      "video_tickers": [
+        "EARN",
+        "LPP",
+        "SPCX"
+      ],
+      "comment_tickers": [
+        "HYPE",
+        "ICO",
+        "MU",
+        "SPCX",
+        "TDS",
+        "USA"
+      ],
+      "query": "Channel Focus: Ricky Gutierrez",
+      "videoId": "tDV7k6icik0",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "He made an Annual Salary in A Day",
+      "channel": "Timothy Sykes",
+      "video_tickers": [
+        "AEHL",
+        "AIIO",
+        "JC",
+        "QUCY",
+        "SNAL",
+        "TDIC",
+        "VWAP"
+      ],
+      "comment_tickers": [
+        "JC",
+        "LEARN",
+        "SURE",
+        "THE",
+        "THIS",
+        "TIM",
+        "WOW"
+      ],
+      "query": "Channel Focus: Timothy Sykes",
+      "videoId": "ohMbzZ_JCO4",
+      "published_time": "2026-06-18"
+    },
+    {
+      "title": "From -$10,000 To Over $33M In Verified Trading Profits - Tim Sykes & Jack Kellogg",
+      "channel": "Titans Of Tomorrow and Timothy Sykes",
+      "video_tickers": [
+        "TOT"
+      ],
+      "comment_tickers": [
+        "THE",
+        "TOT"
+      ],
+      "query": "Channel Focus: Timothy Sykes",
+      "videoId": "xctCZjKHLq8",
+      "published_time": "2026-05-24"
+    },
+    {
+      "title": "Confronting Tim Sykes On His Trading Tactics",
+      "channel": "TheOneLanceB and Timothy Sykes",
+      "video_tickers": [
+        "PER",
+        "PNL",
+        "SMB"
+      ],
+      "comment_tickers": [
+        "ENTP",
+        "GOAT",
+        "OG",
+        "PNL"
+      ],
+      "query": "Channel Focus: Timothy Sykes",
+      "videoId": "k_tdZk5XFBE",
+      "published_time": "2025-12-27"
+    },
+    {
+      "title": "3 Stocks to Buy and 3 Stocks to Sell for July  I June 29, 2026",
+      "channel": "Morningstar, Inc.",
+      "video_tickers": [
+        "ADBE",
+        "LULU",
+        "MU",
+        "US"
+      ],
+      "comment_tickers": [
+        "AMAT",
+        "ESG",
+        "FIG",
+        "GOOGL",
+        "LOTR",
+        "LULU",
+        "MKC",
+        "MS",
+        "MU",
+        "NKE",
+        "PLTR",
+        "SBC",
+        "THX"
+      ],
+      "query": "Channel Focus: Morningstar, Inc.",
+      "videoId": "NW-jcxK04JI",
+      "published_time": "2026-06-29"
+    },
+    {
+      "title": "How to Strengthen Your Income Portfolio",
+      "channel": "Morningstar, Inc.",
+      "video_tickers": [
+        "MIC"
+      ],
+      "comment_tickers": [],
+      "query": "Channel Focus: Morningstar, Inc.",
+      "videoId": "34rd7xJ6Nuo",
+      "published_time": "2026-06-26"
+    },
+    {
+      "title": "Jeremy Grantham \u2018Almost Everything Looks More Attractive Than the US Equity Market\u2019",
+      "channel": "Morningstar, Inc.",
+      "video_tickers": [
+        "CBE",
+        "GMO",
+        "MBA",
+        "UK",
+        "US"
+      ],
+      "comment_tickers": [
+        "LOL",
+        "MSTR",
+        "SPCX",
+        "USA"
+      ],
+      "query": "Channel Focus: Morningstar, Inc.",
+      "videoId": "JQvzFTXmpoc",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "Yahoo Finance Live: Daily Market Coverage - July 2, 2026 9AM-11AM (ET)",
+      "channel": "Yahoo Finance",
+      "video_tickers": [
+        "ET"
+      ],
+      "comment_tickers": [],
+      "query": "Channel Focus: Yahoo Finance",
+      "videoId": "fu3UJzvs61w",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "Yahoo Finance 24/7 Stream: Daily Market Coverage & more",
+      "channel": "Yahoo Finance",
+      "video_tickers": [
+        "ET"
+      ],
+      "comment_tickers": [],
+      "query": "Channel Focus: Yahoo Finance",
+      "videoId": "KQp-e_XQnDE",
+      "published_time": "2024-12-18"
+    },
+    {
+      "title": "Yahoo Finance Live: Daily Market Coverage - July 1, 2026 3PM - 5PM (ET)",
+      "channel": "Yahoo Finance",
+      "video_tickers": [
+        "ET"
+      ],
+      "comment_tickers": [],
+      "query": "Channel Focus: Yahoo Finance",
+      "videoId": "hjsac-uQl8g",
+      "published_time": "2026-07-01"
+    },
+    {
+      "title": "Session 1: Introduction to Valuation",
+      "channel": "Aswath Damodaran",
+      "video_tickers": [],
+      "comment_tickers": [
+        "GOD",
+        "LD",
+        "MBA",
+        "OHH",
+        "UG",
+        "YT"
+      ],
+      "query": "Channel Focus: Aswath Damodaran",
+      "videoId": "znmQ7oMiQrM",
+      "published_time": "2014-08-25"
+    },
+    {
+      "title": "The Truth About Collectible Assets: Can Pokemon Beat The S&P500?",
+      "channel": "The Money Guy Show",
+      "video_tickers": [
+        "CFA",
+        "CFP",
+        "CPA",
+        "PDF"
+      ],
+      "comment_tickers": [
+        "IP",
+        "PSA",
+        "TCG"
+      ],
+      "query": "Channel Focus: The Money Guy Show",
+      "videoId": "dMT__rZoHOw",
+      "published_time": "2026-07-01"
+    },
+    {
+      "title": "Quit Saving Money? The CoastFIRE Epidemic",
+      "channel": "The Money Guy Show",
+      "video_tickers": [
+        "CFA",
+        "CFP",
+        "CPA",
+        "FI",
+        "FIRE",
+        "FOO",
+        "PDF"
+      ],
+      "comment_tickers": [
+        "FICA",
+        "FIRE",
+        "HYSA",
+        "IRA",
+        "NPO",
+        "OK",
+        "RE"
+      ],
+      "query": "Channel Focus: The Money Guy Show",
+      "videoId": "Xe4klYUxnYk",
+      "published_time": "2026-06-30"
+    },
+    {
+      "title": "The Best Financial Strategies by Income, from Financial Advisors",
+      "channel": "The Money Guy Show",
+      "video_tickers": [],
+      "comment_tickers": [
+        "CA",
+        "HSA",
+        "SS",
+        "VOO",
+        "WI"
+      ],
+      "query": "Channel Focus: The Money Guy Show",
+      "videoId": "bmY-VfQVU2o",
+      "published_time": "2025-08-22"
+    },
+    {
+      "title": "Is VEQT Costing You? (& Other Questions) | Rational Reminder 416",
+      "channel": "The Rational Reminder Podcast",
+      "video_tickers": [
+        "AMA",
+        "AUM",
+        "PWL",
+        "VEQT"
+      ],
+      "comment_tickers": [
+        "ASMR",
+        "DB",
+        "DJ",
+        "ER",
+        "HCOL",
+        "MER",
+        "PS",
+        "PWL",
+        "RESP",
+        "ROC",
+        "RRSP",
+        "TLT",
+        "US",
+        "VEQT",
+        "VT"
+      ],
+      "query": "Channel Focus: Rational Reminder",
+      "videoId": "iD1P4J2HaNg",
+      "published_time": "2026-07-02"
+    },
+    {
+      "title": "DFA vs Vanguard | Rational Reminder 351",
+      "channel": "The Rational Reminder Podcast",
+      "video_tickers": [
+        "DFA",
+        "PWL",
+        "US"
+      ],
+      "comment_tickers": [
+        "CFA",
+        "CRSP",
+        "DFA",
+        "DFAW",
+        "DFUS",
+        "US",
+        "VOO"
+      ],
+      "query": "Channel Focus: Rational Reminder",
+      "videoId": "nVKimoQkLAg",
+      "published_time": "2025-04-03"
+    },
+    {
+      "title": "Equal Weight vs. Market Cap Weight Index Funds | Rational Reminder 394",
+      "channel": "The Rational Reminder Podcast",
+      "video_tickers": [
+        "PWL",
+        "US"
+      ],
+      "comment_tickers": [
+        "FWIW",
+        "MOAT",
+        "MS",
+        "NOBL",
+        "QQQ",
+        "RAFI",
+        "RSP",
+        "SPY",
+        "US",
+        "VBR",
+        "VEQT",
+        "VOO",
+        "VTV",
+        "XEQT"
+      ],
+      "query": "Channel Focus: Rational Reminder",
+      "videoId": "ObHZU0rRnYo",
+      "published_time": "2026-01-29"
+    },
+    {
+      "title": "Why the AI Boom Is Just Getting Started",
+      "channel": "Invest Like The Best",
+      "video_tickers": [],
+      "comment_tickers": [
+        "GPT",
+        "JEPA",
+        "LLM",
+        "LOL",
+        "LORD",
+        "PR",
+        "QQQ",
+        "ROI"
+      ],
+      "query": "Channel Focus: Invest Like the Best",
+      "videoId": "DZt1DDmMNGk",
+      "published_time": "2026-06-09"
+    },
+    {
+      "title": "Watts, Wafers, and the Future of AI Infra | Gavin Baker",
+      "channel": "Invest Like The Best",
+      "video_tickers": [
+        "AGI",
+        "GPU",
+        "TSMC",
+        "US"
+      ],
+      "comment_tickers": [
+        "LEFT",
+        "LOL",
+        "LORD",
+        "RFK",
+        "US",
+        "WHAT"
+      ],
+      "query": "Channel Focus: Invest Like the Best",
+      "videoId": "Mmj_G9RlW-I",
+      "published_time": "2026-05-20"
+    },
+    {
+      "title": "Legendary Investor Dan Loeb on AI, Credit, & Third Point\u2019s $25B Strategy",
+      "channel": "Invest Like The Best",
+      "video_tickers": [
+        "FTX"
+      ],
+      "comment_tickers": [
+        "AA",
+        "IBD",
+        "TOTAL",
+        "TRASH",
+        "VE"
+      ],
+      "query": "Channel Focus: Invest Like the Best",
+      "videoId": "vhTi_8QwXjg",
+      "published_time": "2026-05-28"
+    }
+  ],
+  "reddit": [
+    {
+      "subreddit": "wallstreetbets",
+      "title": "OPEC+ approves further oil output increase as Hormuz exports start to recover",
+      "ups": 100,
+      "tickers": [
+        "OPEC"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "GOOGL YOLO ~$150k",
+      "ups": 100,
+      "tickers": [
+        "WSB",
+        "GOOGL",
+        "TLDR"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "SKHY is not just SK hynix. It accidentally reads like a Korean chaebol love letter.",
+      "ups": 100,
+      "tickers": [
+        "SK",
+        "ADR",
+        "KHY",
+        "HBM",
+        "SKHY"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "Leverage in South Korean chip stocks is out of control",
+      "ups": 100,
+      "tickers": [
+        "MU",
+        "NVDA",
+        "SK",
+        "TSLA"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "$60k in IBM, so far so good.",
+      "ups": 100,
+      "tickers": [
+        "IBM"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "RKLB YOLO",
+      "ups": 100,
+      "tickers": [
+        "RKLB"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "50k in Jan 2027 NBIS Calls",
+      "ups": 100,
+      "tickers": [
+        "NBIS"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "$71,000 in SNXX",
+      "ups": 100,
+      "tickers": [
+        "SNXX"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "I fucking love this sub",
+      "ups": 100,
+      "tickers": [
+        "HM"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "AMA +7546% in half a year playing options",
+      "ups": 100,
+      "tickers": [
+        "AMA"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "Amazon\u2019s Starlink Rival Just Reached Its Orbital Tipping Point to Begin Service",
+      "ups": 100,
+      "tickers": [
+        "AWS"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "$70K in $ADBE Calls",
+      "ups": 100,
+      "tickers": [
+        "ADBE",
+        "BEP",
+        "ER"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "I\u2019m more confused by yesterday\u2019s sell-off than the earnings",
+      "ups": 100,
+      "tickers": [
+        "MU",
+        "SK"
+      ]
+    },
+    {
+      "subreddit": "wallstreetbets",
+      "title": "I\u2019m the biggest degenerate gambler on WSB. 740% returns in the last 2 weeks.",
+      "ups": 100,
+      "tickers": [
+        "MSTR",
+        "WSB",
+        "TLRY",
+        "CAD"
+      ]
+    }
+  ],
+  "discord": [
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "MU (Micron Technology) is trending heavily on social boards with 117 mentions and 1,453 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "MU"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "ASTS (AST SpaceMobile) is trending heavily on social boards with 75 mentions and 499 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "ASTS"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "SPY (SPDR S&amp;P 500 ETF Trust) is trending heavily on social boards with 42 mentions and 99 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "SPY"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "WEN (Wendy\u2019s Company) is trending heavily on social boards with 38 mentions and 590 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "WEN"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "QQQ (Invesco QQQ ETF) is trending heavily on social boards with 37 mentions and 59 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "QQQ"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "MSFT (Microsoft) is trending heavily on social boards with 35 mentions and 311 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "MSFT"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "NVDA (NVIDIA) is trending heavily on social boards with 32 mentions and 1,158 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "NVDA"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "RKLB (Rocket Lab USA) is trending heavily on social boards with 29 mentions and 322 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "RKLB"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "META (Meta Platforms (Facebook)) is trending heavily on social boards with 29 mentions and 498 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "META"
+      ]
+    },
+    {
+      "channel": "\ud83d\udcca-social-sentiment",
+      "author": "ApeWisdom",
+      "content": "SNDK (Sandisk) is trending heavily on social boards with 28 mentions and 87 upvotes. Overall sentiment is bullish \ud83d\ude80.",
+      "tickers": [
+        "SNDK"
+      ]
+    }
+  ],
+  "general_news": []
+}
